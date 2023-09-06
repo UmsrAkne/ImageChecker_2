@@ -41,7 +41,7 @@ namespace ImageChecker_2.Models
 
         public FileInfo FileInfo { get; }
 
-        private int SubIndex { get; set; }
+        public int SubIndex { get; set; }
 
         public override string ToString()
         {
