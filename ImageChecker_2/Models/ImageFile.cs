@@ -39,7 +39,7 @@ namespace ImageChecker_2.Models
 
         public int Index { get; private set; }
 
-        private FileInfo FileInfo { get; }
+        public FileInfo FileInfo { get; }
 
         private int SubIndex { get; set; }
 
