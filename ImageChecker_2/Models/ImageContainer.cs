@@ -32,9 +32,9 @@ namespace ImageChecker_2.Models
 
         private List<ImageFile> Files { get; set; } = new List<ImageFile>();
 
-        public void Load(string directoryPath)
+        public void Load(IEnumerable<string> filePaths)
         {
-            Files = Directory.GetFiles(directoryPath)
+            Files = filePaths
                 .Where(path => path.EndsWith(".png") || path.EndsWith(".jpg"))
                 .Where(path => Path.GetFileName(path).Contains(keyChar))
                 .Select(path => new ImageFile(path))
