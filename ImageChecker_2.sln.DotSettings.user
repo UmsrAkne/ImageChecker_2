@@ -3,5 +3,7 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::65DAB4E8-0AD3-4C5D-B152-67904E3A3CB0::net6.0-windows::ImageChecker_2Tests.Models.ImageFileTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::65DAB4E8-0AD3-4C5D-B152-67904E3A3CB0::net6.0-windows::ImageChecker_2Tests.Models.ImageContainerTest.LoadTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::65DAB4E8-0AD3-4C5D-B152-67904E3A3CB0::net6.0-windows::ImageChecker_2Tests.Models.ImageContainerTest.LoadTest_KeyCharB&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::65DAB4E8-0AD3-4C5D-B152-67904E3A3CB0::net6.0-windows::ImageChecker_2Tests.Models.ImageContainerTest.LoadTest_KeyCharC&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
