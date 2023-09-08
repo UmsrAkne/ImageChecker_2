@@ -20,6 +20,13 @@
         <models:DragAndDropBehavior />
     </i:Interaction.Behaviors>
 
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ListViewTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -60,10 +67,27 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <ListBox Grid.Column="0" ItemsSource="{Binding ImageContainerA.FilteredFiles}" />
-            <ListBox Grid.Column="1" ItemsSource="{Binding ImageContainerB.FilteredFiles}" />
-            <ListBox Grid.Column="2" ItemsSource="{Binding ImageContainerC.FilteredFiles}" />
-            <ListBox Grid.Column="3" ItemsSource="{Binding ImageContainerD.FilteredFiles}" />
+            <ListBox
+                Grid.Column="0"
+                HorizontalContentAlignment="Stretch"
+                ItemTemplate="{StaticResource ImageListViewDataTemplate}"
+                ItemsSource="{Binding ImageContainerA.FilteredFiles}" />
+
+            <ListBox
+                Grid.Column="1"
+                HorizontalContentAlignment="Stretch"
+                ItemTemplate="{StaticResource ImageListViewDataTemplate}"
+                ItemsSource="{Binding ImageContainerB.FilteredFiles}" />
+
+            <ListBox
+                Grid.Column="2"
+                ItemTemplate="{StaticResource ImageListViewDataTemplate}"
+                ItemsSource="{Binding ImageContainerC.FilteredFiles}" />
+
+            <ListBox
+                Grid.Column="3"
+                ItemTemplate="{StaticResource ImageListViewDataTemplate}"
+                ItemsSource="{Binding ImageContainerD.FilteredFiles}" />
 
         </Grid>
     </Grid>
