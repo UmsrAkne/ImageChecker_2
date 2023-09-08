@@ -10,12 +10,24 @@ namespace ImageChecker_2Tests.Models
         {
             "A0101.png",
             "A0102.png",
+            
+            "A0201.png",
+            "A0202.png",
+            
             "B0101.png",
             "B0102.png",
             "B0103.png",
+            
+            "B0201.png",
+            "B0202.png",
+            
             "C0101.png",
             "C0102.png",
             "C0103.jpg",
+            
+            "C0201.jpg",
+            "C0202.jpg",
+            
             "testFile.txt",
         };
 
@@ -40,10 +52,12 @@ namespace ImageChecker_2Tests.Models
 
             Assert.IsTrue(imageContainerB.Drawing);
             Assert.That(imageContainerB.CurrentFile.FileInfo.Name, Is.EqualTo("B0101.png"));
-            Assert.That(imageContainerB.FilteredFiles.Count, Is.EqualTo(3), "抽出された画像ファイルの数は 3 のはず");
+            Assert.That(imageContainerB.FilteredFiles.Count, Is.EqualTo(5), "抽出された画像ファイルの数は 5 のはず");
             Assert.That(imageContainerB.FilteredFiles[0].FileInfo.Name, Is.EqualTo("B0101.png"));
             Assert.That(imageContainerB.FilteredFiles[1].FileInfo.Name, Is.EqualTo("B0102.png"));
             Assert.That(imageContainerB.FilteredFiles[2].FileInfo.Name, Is.EqualTo("B0103.png"));
+            Assert.That(imageContainerB.FilteredFiles[3].FileInfo.Name, Is.EqualTo("B0201.png"));
+            Assert.That(imageContainerB.FilteredFiles[4].FileInfo.Name, Is.EqualTo("B0202.png"));
         }
 
         [Test]
@@ -54,10 +68,12 @@ namespace ImageChecker_2Tests.Models
 
             Assert.IsTrue(imageContainerC.Drawing);
             Assert.That(imageContainerC.CurrentFile.FileInfo.Name, Is.EqualTo("C0101.png"));
-            Assert.That(imageContainerC.FilteredFiles.Count, Is.EqualTo(3), "抽出された画像ファイルの数は 3 のはず");
+            Assert.That(imageContainerC.FilteredFiles.Count, Is.EqualTo(5), "抽出された画像ファイルの数は 5 のはず");
             Assert.That(imageContainerC.FilteredFiles[0].FileInfo.Name, Is.EqualTo("C0101.png"));
             Assert.That(imageContainerC.FilteredFiles[1].FileInfo.Name, Is.EqualTo("C0102.png"));
             Assert.That(imageContainerC.FilteredFiles[2].FileInfo.Name, Is.EqualTo("C0103.jpg"));
+            Assert.That(imageContainerC.FilteredFiles[3].FileInfo.Name, Is.EqualTo("C0201.jpg"));
+            Assert.That(imageContainerC.FilteredFiles[4].FileInfo.Name, Is.EqualTo("C0202.jpg"));
         }
     }
 }
