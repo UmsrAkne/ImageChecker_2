@@ -67,31 +67,33 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
+            <Grid.Resources>
+                <Style TargetType="ListBox" x:Key="ImageListBoxStyle">
+                    <Setter Property="VirtualizingPanel.ScrollUnit" Value="Pixel" />
+                    <Setter Property="ItemTemplate" Value="{StaticResource ImageListViewDataTemplate}" />
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                </Style>
+            </Grid.Resources>
+
             <ListBox
                 Grid.Column="0"
-                HorizontalContentAlignment="Stretch"
-                ItemTemplate="{StaticResource ImageListViewDataTemplate}"
                 ItemsSource="{Binding ImageContainerA.FilteredFiles}"
-                VirtualizingPanel.ScrollUnit="Pixel" />
+                Style="{StaticResource ImageListBoxStyle}" />
 
             <ListBox
                 Grid.Column="1"
-                HorizontalContentAlignment="Stretch"
-                ItemTemplate="{StaticResource ImageListViewDataTemplate}"
                 ItemsSource="{Binding ImageContainerB.FilteredFiles}"
-                VirtualizingPanel.ScrollUnit="Pixel" />
+                Style="{StaticResource ImageListBoxStyle}" />
 
             <ListBox
                 Grid.Column="2"
-                ItemTemplate="{StaticResource ImageListViewDataTemplate}"
                 ItemsSource="{Binding ImageContainerC.FilteredFiles}"
-                VirtualizingPanel.ScrollUnit="Pixel" />
+                Style="{StaticResource ImageListBoxStyle}" />
 
             <ListBox
                 Grid.Column="3"
-                ItemTemplate="{StaticResource ImageListViewDataTemplate}"
                 ItemsSource="{Binding ImageContainerD.FilteredFiles}"
-                VirtualizingPanel.ScrollUnit="Pixel" />
+                Style="{StaticResource ImageListBoxStyle}" />
 
         </Grid>
     </Grid>
