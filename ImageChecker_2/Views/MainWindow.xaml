@@ -71,23 +71,27 @@
                 Grid.Column="0"
                 HorizontalContentAlignment="Stretch"
                 ItemTemplate="{StaticResource ImageListViewDataTemplate}"
-                ItemsSource="{Binding ImageContainerA.FilteredFiles}" />
+                ItemsSource="{Binding ImageContainerA.FilteredFiles}"
+                VirtualizingPanel.ScrollUnit="Pixel" />
 
             <ListBox
                 Grid.Column="1"
                 HorizontalContentAlignment="Stretch"
                 ItemTemplate="{StaticResource ImageListViewDataTemplate}"
-                ItemsSource="{Binding ImageContainerB.FilteredFiles}" />
+                ItemsSource="{Binding ImageContainerB.FilteredFiles}"
+                VirtualizingPanel.ScrollUnit="Pixel" />
 
             <ListBox
                 Grid.Column="2"
                 ItemTemplate="{StaticResource ImageListViewDataTemplate}"
-                ItemsSource="{Binding ImageContainerC.FilteredFiles}" />
+                ItemsSource="{Binding ImageContainerC.FilteredFiles}"
+                VirtualizingPanel.ScrollUnit="Pixel" />
 
             <ListBox
                 Grid.Column="3"
                 ItemTemplate="{StaticResource ImageListViewDataTemplate}"
-                ItemsSource="{Binding ImageContainerD.FilteredFiles}" />
+                ItemsSource="{Binding ImageContainerD.FilteredFiles}"
+                VirtualizingPanel.ScrollUnit="Pixel" />
 
         </Grid>
     </Grid>
