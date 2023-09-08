@@ -75,5 +75,50 @@ namespace ImageChecker_2Tests.Models
             Assert.That(imageContainerC.FilteredFiles[3].FileInfo.Name, Is.EqualTo("C0201.jpg"));
             Assert.That(imageContainerC.FilteredFiles[4].FileInfo.Name, Is.EqualTo("C0202.jpg"));
         }
+
+        [Test]
+        public void SelectSameGroupImagesTest_keyCharA()
+        {
+            var imageContainer = new ImageContainer("A");
+            imageContainer.Load(FilePaths);
+            
+            imageContainer.SelectSameGroupImages(new ImageFile("A0101.png"));
+            
+            // keyChar == A の場合はフィルタリングはされないので、ロードした画像 x4 が全て選択される。
+            Assert.That(imageContainer.FilteredFiles.Count, Is.EqualTo(4));
+            Assert.That(imageContainer.FilteredFiles[0].FileInfo.Name, Is.EqualTo("A0101.png"));
+            Assert.That(imageContainer.FilteredFiles[1].FileInfo.Name, Is.EqualTo("A0102.png"));
+            Assert.That(imageContainer.FilteredFiles[2].FileInfo.Name, Is.EqualTo("A0201.png"));
+            Assert.That(imageContainer.FilteredFiles[3].FileInfo.Name, Is.EqualTo("A0202.png"));
+        }
+        
+        [Test]
+        public void SelectSameGroupImagesTest_group01()
+        {
+            var imageContainer = new ImageContainer("B");
+            imageContainer.Load(FilePaths);
+            
+            imageContainer.SelectSameGroupImages(new ImageFile("A0101.png"));
+            
+            // グループ 01 の画像ファイル x3 が選択されるはず。
+            Assert.That(imageContainer.FilteredFiles.Count, Is.EqualTo(3));
+            Assert.That(imageContainer.FilteredFiles[0].FileInfo.Name, Is.EqualTo("B0101.png"));
+            Assert.That(imageContainer.FilteredFiles[1].FileInfo.Name, Is.EqualTo("B0102.png"));
+            Assert.That(imageContainer.FilteredFiles[2].FileInfo.Name, Is.EqualTo("B0103.png"));
+        }
+        
+        [Test]
+        public void SelectSameGroupImagesTest_group02()
+        {
+            var imageContainer = new ImageContainer("B");
+            imageContainer.Load(FilePaths);
+            
+            imageContainer.SelectSameGroupImages(new ImageFile("A0201.png"));
+            
+            // グループ 02 の画像ファイル x2 が選択されるはず。
+            Assert.That(imageContainer.FilteredFiles.Count, Is.EqualTo(2));
+            Assert.That(imageContainer.FilteredFiles[0].FileInfo.Name, Is.EqualTo("B0201.png"));
+            Assert.That(imageContainer.FilteredFiles[1].FileInfo.Name, Is.EqualTo("B0202.png"));
+        }
     }
 }
