@@ -1,11 +1,13 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:converters="clr-namespace:ImageChecker_2.Models.Converters.Converters"
     xmlns:models="clr-namespace:ImageChecker_2.Models"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <converters:SizeFixConverter x:Key="SizeFixConverter" />
     <DataTemplate DataType="{x:Type models:ImageFile}" x:Key="ImageListViewDataTemplate">
         <Border>
             <StackPanel>
-                <Image Source="{Binding FileInfo.FullName}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=ActualWidth}" />
+                <Image Source="{Binding FileInfo.FullName}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=ActualWidth, Converter={StaticResource SizeFixConverter}}" />
                 <TextBlock Text="{Binding FileInfo.Name}" />
             </StackPanel>
         </Border>
