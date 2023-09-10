@@ -4,7 +4,11 @@ namespace ImageChecker_2.Models
 {
     public class PreviewContainer : BindableBase
     {
-        private double scale;
+        private double scale = 1.0;
+        private ImageFile imageFileA;
+        private ImageFile imageFileB;
+        private ImageFile imageFileC;
+        private ImageFile imageFileD;
 
         public double X { get; set; }
         
@@ -31,15 +35,15 @@ namespace ImageChecker_2.Models
         public double Width { get; set; }
         
         public double Height { get; set; }
-        
-        public ImageFile ImageFileA { get; set; }
-        
-        public ImageFile ImageFileB { get; set; }
-        
-        public ImageFile ImageFileC { get; set; }
-        
-        public ImageFile ImageFileD { get; set; }
-        
+
+        public ImageFile ImageFileA { get => imageFileA; set => SetProperty(ref imageFileA, value); }
+
+        public ImageFile ImageFileB { get => imageFileB; set => SetProperty(ref imageFileB, value); }
+
+        public ImageFile ImageFileC { get => imageFileC; set => SetProperty(ref imageFileC, value); }
+
+        public ImageFile ImageFileD { get => imageFileD; set => SetProperty(ref imageFileD, value); }
+
         public void SetImageFiles(ImageFile imageA, ImageFile imageB, ImageFile imageC, ImageFile imageD)
         {
             ImageFileA = imageA;

@@ -49,11 +49,40 @@
         </Menu>
 
         <Canvas
-            Background="CornflowerBlue"
+            Background="Blue"
+            ClipToBounds="True"
             Grid.Column="0"
             Grid.Row="1"
             Height="180"
-            Width="320" />
+            Width="320">
+
+            <Image
+                Canvas.Left="0"
+                Canvas.Top="0"
+                Source="{Binding PreviewContainer.ImageFileA.FileInfo.FullName}">
+                <Image.LayoutTransform>
+                    <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
+                </Image.LayoutTransform>
+            </Image>
+
+            <Image Source="{Binding PreviewContainer.ImageFileD.FileInfo.FullName}">
+                <Image.LayoutTransform>
+                    <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
+                </Image.LayoutTransform>
+            </Image>
+
+            <Image Source="{Binding PreviewContainer.ImageFileB.FileInfo.FullName}">
+                <Image.LayoutTransform>
+                    <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
+                </Image.LayoutTransform>
+            </Image>
+
+            <Image Source="{Binding PreviewContainer.ImageFileC.FileInfo.FullName}">
+                <Image.LayoutTransform>
+                    <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
+                </Image.LayoutTransform>
+            </Image>
+        </Canvas>
 
         <Grid
             Grid.Column="1"
