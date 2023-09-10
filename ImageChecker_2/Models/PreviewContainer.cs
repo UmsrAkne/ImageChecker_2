@@ -5,18 +5,40 @@ namespace ImageChecker_2.Models
     public class PreviewContainer : BindableBase
     {
         private double scale = 1.0;
+        private double x;
         private ImageFile imageFileA;
         private ImageFile imageFileB;
         private ImageFile imageFileC;
         private ImageFile imageFileD;
+        private double y;
 
-        public double X { get; set; }
-        
-        public double ActualX { get; set; }
-        
-        public double Y { get; set; }
-        
-        public double ActualY { get; set; }
+        public double X
+        {
+            get => x;
+            set
+            {
+                if (SetProperty(ref x, value))
+                {
+                    RaisePropertyChanged(nameof(ActualX));
+                }
+            }
+        }
+
+        public double ActualX => X / 4;
+
+        public double Y
+        {
+            get => y;
+            set
+            {
+                if (SetProperty(ref y, value))
+                {
+                    RaisePropertyChanged(nameof(ActualY));
+                }
+            }
+        }
+
+        public double ActualY => Y / 4;
 
         public double Scale
         {
