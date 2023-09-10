@@ -53,8 +53,8 @@
             ClipToBounds="True"
             Grid.Column="0"
             Grid.Row="1"
-            Height="180"
-            Width="320">
+            Height="{Binding PreviewContainer.Height}"
+            Width="{Binding PreviewContainer.Width}">
 
             <Image
                 Canvas.Left="0"

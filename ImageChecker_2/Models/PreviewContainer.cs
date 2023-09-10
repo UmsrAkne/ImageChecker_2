@@ -32,9 +32,9 @@ namespace ImageChecker_2.Models
 
         public double ActualScale => Scale / 4;
 
-        public double Width { get; set; }
-        
-        public double Height { get; set; }
+        public double Width { get; private set; } = 320;
+
+        public double Height { get; private set; } = 180;
 
         public ImageFile ImageFileA { get => imageFileA; set => SetProperty(ref imageFileA, value); }
 
