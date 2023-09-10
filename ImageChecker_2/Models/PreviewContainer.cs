@@ -43,13 +43,5 @@ namespace ImageChecker_2.Models
         public ImageFile ImageFileC { get => imageFileC; set => SetProperty(ref imageFileC, value); }
 
         public ImageFile ImageFileD { get => imageFileD; set => SetProperty(ref imageFileD, value); }
-
-        public void SetImageFiles(ImageFile imageA, ImageFile imageB, ImageFile imageC, ImageFile imageD)
-        {
-            ImageFileA = imageA;
-            ImageFileB = imageB;
-            ImageFileC = imageC;
-            ImageFileD = imageD;
-        }
     }
 }
