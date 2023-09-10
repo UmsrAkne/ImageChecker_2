@@ -107,16 +107,16 @@
 
             <Slider
                 IsSnapToTickEnabled="True"
-                Maximum="4800"
-                Minimum="-4800"
+                Maximum="{Binding PreviewContainer.SlideRange.Right}"
+                Minimum="{Binding PreviewContainer.SlideRange.Left}"
                 TickFrequency="10"
                 Value="{Binding PreviewContainer.X}" />
 
             <TextBlock Text="Y" />
             <Slider
                 IsSnapToTickEnabled="True"
-                Maximum="2700"
-                Minimum="-2700"
+                Maximum="{Binding PreviewContainer.SlideRange.Bottom}"
+                Minimum="{Binding PreviewContainer.SlideRange.Top}"
                 TickFrequency="10"
                 Value="{Binding PreviewContainer.Y}" />
 

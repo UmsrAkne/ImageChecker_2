@@ -1,3 +1,4 @@
+using System.Windows;
 using Prism.Mvvm;
 
 namespace ImageChecker_2.Models
@@ -11,6 +12,7 @@ namespace ImageChecker_2.Models
         private ImageFile imageFileC;
         private ImageFile imageFileD;
         private double y;
+        private Rect slideRange;
 
         public double X
         {
@@ -45,10 +47,13 @@ namespace ImageChecker_2.Models
             get => scale;
             set
             {
-                if (SetProperty(ref scale, value))
+                if (!SetProperty(ref scale, value))
                 {
-                    RaisePropertyChanged(nameof(ActualScale));
+                    return;
                 }
+
+                RaisePropertyChanged(nameof(ActualScale));
+                UpdateSlideRange();
             }
         }
 
@@ -58,12 +63,31 @@ namespace ImageChecker_2.Models
 
         public double Height { get; private set; } = 180;
 
-        public ImageFile ImageFileA { get => imageFileA; set => SetProperty(ref imageFileA, value); }
+        public Rect SlideRange { get => slideRange; private set => SetProperty(ref slideRange, value); }
+
+        public ImageFile ImageFileA
+        {
+            get => imageFileA;
+            set
+            {
+                SetProperty(ref imageFileA, value);
+                UpdateSlideRange();
+            }
+        }
 
         public ImageFile ImageFileB { get => imageFileB; set => SetProperty(ref imageFileB, value); }
 
         public ImageFile ImageFileC { get => imageFileC; set => SetProperty(ref imageFileC, value); }
 
         public ImageFile ImageFileD { get => imageFileD; set => SetProperty(ref imageFileD, value); }
+
+        private void UpdateSlideRange()
+        {
+            SlideRange = new Rect(
+                ImageFileA.Width * Scale * -1,
+                ImageFileA.Height * Scale * -1,
+                ImageFileA.Width * 2.0 * Scale, 
+                ImageFileA.Height * 2.0 * Scale);
+        }
     }
 }
