@@ -17,9 +17,11 @@ namespace ImageChecker_2.ViewModels
         public MainWindowViewModel()
         {
         }
-        
+
         public string Title { get => title; set => SetProperty(ref title, value); }
-        
+
+        public PreviewContainer PreviewContainer { get; } = new PreviewContainer();
+
         public ImageContainer ImageContainerA
         {
             get => imageContainerA;
@@ -54,6 +56,11 @@ namespace ImageChecker_2.ViewModels
             var fs = filePaths.ToList();
             new List<ImageContainer> { ImageContainerA, ImageContainerB, ImageContainerC, ImageContainerD, }
                 .ForEach(c => c.Load(fs));
+
+            PreviewContainer.ImageFileA = ImageContainerA.CurrentFile;
+            PreviewContainer.ImageFileB = ImageContainerB.CurrentFile;
+            PreviewContainer.ImageFileC = ImageContainerC.CurrentFile;
+            PreviewContainer.ImageFileD = ImageContainerD.CurrentFile;
         }
     }
 }
