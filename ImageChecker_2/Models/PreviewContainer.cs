@@ -26,7 +26,7 @@ namespace ImageChecker_2.Models
             }
         }
 
-        public double ActualX => X / 4;
+        public double ActualX => X * PreviewScreenScale;
 
         public double Y
         {
@@ -40,7 +40,7 @@ namespace ImageChecker_2.Models
             }
         }
 
-        public double ActualY => Y / 4;
+        public double ActualY => Y * PreviewScreenScale;
 
         public double Scale
         {
@@ -57,7 +57,7 @@ namespace ImageChecker_2.Models
             }
         }
 
-        public double ActualScale => Scale / 4;
+        public double ActualScale => Scale * PreviewScreenScale;
 
         public double Width { get; private set; } = 320;
 
