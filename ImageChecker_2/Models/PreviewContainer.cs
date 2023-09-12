@@ -63,6 +63,10 @@ namespace ImageChecker_2.Models
 
         public double Height { get; private set; } = 180;
 
+        public double ScreenWidth => Width / PreviewScreenScale;
+        
+        public double ScreenHeight => Height / PreviewScreenScale;
+
         public Rect SlideRange { get => slideRange; private set => SetProperty(ref slideRange, value); }
 
         public ImageFile ImageFileA
@@ -80,6 +84,8 @@ namespace ImageChecker_2.Models
         public ImageFile ImageFileC { get => imageFileC; set => SetProperty(ref imageFileC, value); }
 
         public ImageFile ImageFileD { get => imageFileD; set => SetProperty(ref imageFileD, value); }
+        
+        private double PreviewScreenScale { get; set; } = 0.25;
 
         private void UpdateSlideRange()
         {

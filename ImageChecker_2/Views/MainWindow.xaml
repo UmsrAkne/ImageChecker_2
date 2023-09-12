@@ -105,6 +105,16 @@
                 </Image>
             </Canvas>
 
+            <StackPanel Margin="3,0" Orientation="Horizontal">
+                <TextBlock Text="Width = " />
+                <TextBlock Text="{Binding PreviewContainer.ScreenWidth}" />
+                <Border Margin="6,0" />
+                <TextBlock Text="Height =  " />
+                <TextBlock Text="{Binding PreviewContainer.ScreenHeight}" />
+            </StackPanel>
+
+            <Border />
+
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="3,0" Text="Scale : " />
                 <TextBlock Text="{Binding PreviewContainer.Scale}" />
