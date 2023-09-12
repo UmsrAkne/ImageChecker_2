@@ -48,7 +48,20 @@
             <MenuItem Header="View" />
         </Menu>
 
-        <StackPanel Grid.Column="0" Grid.Row="1">
+        <StackPanel
+            Grid.Column="0"
+            Grid.Row="1"
+            Margin="3">
+
+            <StackPanel.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="BorderBrush" Value="DarkGray" />
+                    <Setter Property="Height" Value="1" />
+                    <Setter Property="Margin" Value="0,6" />
+                </Style>
+            </StackPanel.Resources>
+
             <Canvas
                 Background="Blue"
                 ClipToBounds="True"
@@ -92,8 +105,10 @@
                 </Image>
             </Canvas>
 
-            <TextBlock Text="Scale" />
-            <TextBlock Text="{Binding PreviewContainer.Scale}" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="3,0" Text="Scale : " />
+                <TextBlock Text="{Binding PreviewContainer.Scale}" />
+            </StackPanel>
 
             <Slider
                 IsSnapToTickEnabled="True"
@@ -102,8 +117,12 @@
                 TickFrequency="1"
                 Value="{Binding PreviewContainer.Scale}" />
 
-            <TextBlock Text="X" />
-            <TextBlock Text="{Binding PreviewContainer.X}" />
+            <Border />
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="3,0" Text="X : " />
+                <TextBlock Text="{Binding PreviewContainer.X}" />
+            </StackPanel>
 
             <Slider
                 IsSnapToTickEnabled="True"
@@ -112,7 +131,13 @@
                 TickFrequency="10"
                 Value="{Binding PreviewContainer.X}" />
 
-            <TextBlock Text="Y" />
+            <Border />
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="3,0" Text="Y : " />
+                <TextBlock Text="{Binding PreviewContainer.Y}" />
+            </StackPanel>
+
             <Slider
                 IsSnapToTickEnabled="True"
                 Maximum="{Binding PreviewContainer.SlideRange.Bottom}"
@@ -120,6 +145,7 @@
                 TickFrequency="10"
                 Value="{Binding PreviewContainer.Y}" />
 
+            <Border />
         </StackPanel>
 
         <Grid
