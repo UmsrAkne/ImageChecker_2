@@ -26,7 +26,7 @@ namespace ImageChecker_2.Models
             }
         }
 
-        public double ActualX => X / 4;
+        public double ActualX => X * PreviewScreenScale;
 
         public double Y
         {
@@ -40,7 +40,7 @@ namespace ImageChecker_2.Models
             }
         }
 
-        public double ActualY => Y / 4;
+        public double ActualY => Y * PreviewScreenScale;
 
         public double Scale
         {
@@ -57,11 +57,15 @@ namespace ImageChecker_2.Models
             }
         }
 
-        public double ActualScale => Scale / 4;
+        public double ActualScale => Scale * PreviewScreenScale;
 
         public double Width { get; private set; } = 320;
 
         public double Height { get; private set; } = 180;
+
+        public double ScreenWidth => Width / PreviewScreenScale;
+        
+        public double ScreenHeight => Height / PreviewScreenScale;
 
         public Rect SlideRange { get => slideRange; private set => SetProperty(ref slideRange, value); }
 
@@ -80,6 +84,8 @@ namespace ImageChecker_2.Models
         public ImageFile ImageFileC { get => imageFileC; set => SetProperty(ref imageFileC, value); }
 
         public ImageFile ImageFileD { get => imageFileD; set => SetProperty(ref imageFileD, value); }
+        
+        private double PreviewScreenScale { get; set; } = 0.25;
 
         private void UpdateSlideRange()
         {
