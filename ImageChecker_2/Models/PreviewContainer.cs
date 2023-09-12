@@ -83,6 +83,12 @@ namespace ImageChecker_2.Models
 
         private void UpdateSlideRange()
         {
+            if (ImageFileA == null)
+            {
+                SlideRange = new Rect(-1280, -720, 2560, 1440);
+                return;
+            }
+
             SlideRange = new Rect(
                 ImageFileA.Width * Scale * -1,
                 ImageFileA.Height * Scale * -1,
