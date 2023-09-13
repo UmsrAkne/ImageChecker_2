@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 
@@ -21,7 +22,7 @@ namespace ImageChecker_2.Models
         /// </param>
         /// <returns>baseText に置き換え処理を加えた文字列を返します。</returns>
         /// <exception cref="ArgumentException">imageFiles が null であるか、リストのサイズが 4 以外の場合にスローされます。</exception>
-        public static string GetTag(string baseText, [NotNull]List<ImageFile> imageFiles)
+        public static string GetTag(string baseText, [NotNull] List<ImageFile> imageFiles)
         {
             if (imageFiles.Count != 4)
             {
@@ -29,7 +30,7 @@ namespace ImageChecker_2.Models
             }
 
             var reps = imageFiles.Select(
-                f => f == null ? string.Empty : Path.GetFileNameWithoutExtension(f.FileInfo.FullName))
+                    f => f == null ? string.Empty : Path.GetFileNameWithoutExtension(f.FileInfo.FullName))
                 .ToList();
 
             return baseText
@@ -37,6 +38,20 @@ namespace ImageChecker_2.Models
                 .Replace("$b", reps[1])
                 .Replace("$c", reps[2])
                 .Replace("$d", reps[3]);
+        }
+
+        public static string GetTag(string baseText, PreviewContainer previewContainer)
+        {
+            return GetTag(baseText, new List<ImageFile>
+                {
+                    previewContainer.ImageFileA,
+                    previewContainer.ImageFileB,
+                    previewContainer.ImageFileC,
+                    previewContainer.ImageFileD,
+                })
+                .Replace("$s", previewContainer.Scale.ToString(CultureInfo.InvariantCulture))
+                .Replace("$x", previewContainer.X.ToString(CultureInfo.CurrentCulture))
+                .Replace("$y", previewContainer.Y.ToString(CultureInfo.CurrentCulture));
         }
     }
 }
