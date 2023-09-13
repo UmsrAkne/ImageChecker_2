@@ -59,5 +59,25 @@ namespace ImageChecker_2Tests.Models
                 )
             );
         }
+
+        [Test]
+        public void GetTagFromPreviewContainerTest()
+        {
+            var tag = TagGenerator.GetTag(
+                @"<image a=""$a"" $b,$c,$d,$s,$x,$y />",
+                new PreviewContainer() 
+                {
+                    ImageFileA = new ImageFile("aa.png"),
+                    ImageFileB = new ImageFile("bb.png"),
+                    ImageFileC = new ImageFile("cc.png"),
+                    ImageFileD = new ImageFile("dd.png"),
+                    Scale = 1.1,
+                    X = 100,
+                    Y = 200,
+                }
+            );
+
+            Assert.That(tag, Is.EqualTo(@"<image a=""aa"" bb,cc,dd,1.1,100,200 />"));
+        }
     }
 }
