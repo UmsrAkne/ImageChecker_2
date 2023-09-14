@@ -31,7 +31,7 @@ namespace ImageChecker_2.Models
             SubIndex = int.Parse(matches[0].Groups[2].Value);
         }
 
-        public int Width { get => width; private set => SetProperty(ref width, value); }
+        public int Width { get => width; set => SetProperty(ref width, value); }
 
         public int Height { get => height; private set => SetProperty(ref height, value); }
 

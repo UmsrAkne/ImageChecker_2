@@ -22,9 +22,12 @@ namespace ImageChecker_2.Models
                 if (SetProperty(ref x, value))
                 {
                     RaisePropertyChanged(nameof(ActualX));
+                    RaisePropertyChanged(nameof(DisplayX));
                 }
             }
         }
+
+        public double DisplayX => (ImageWidth * Scale / 2) + X - (Width / PreviewScreenScale / 2);
 
         public double ActualX => X * PreviewScreenScale;
 
@@ -36,11 +39,14 @@ namespace ImageChecker_2.Models
                 if (SetProperty(ref y, value))
                 {
                     RaisePropertyChanged(nameof(ActualY));
+                    RaisePropertyChanged(nameof(DisplayY));
                 }
             }
         }
 
         public double ActualY => Y * PreviewScreenScale;
+        
+        public double DisplayY => (ImageHeight * Scale / 2) + Y - (Height / PreviewScreenScale / 2);
 
         public double Scale
         {
@@ -53,6 +59,8 @@ namespace ImageChecker_2.Models
                 }
 
                 RaisePropertyChanged(nameof(ActualScale));
+                RaisePropertyChanged(nameof(DisplayX));
+                RaisePropertyChanged(nameof(DisplayY));
                 UpdateSlideRange();
             }
         }
@@ -87,6 +95,10 @@ namespace ImageChecker_2.Models
         
         private double PreviewScreenScale { get; set; } = 0.25;
 
+        private double ImageWidth => ImageFileA?.Width ?? 0;
+        
+        private double ImageHeight => ImageFileA?.Height ?? 0;
+        
         private void UpdateSlideRange()
         {
             if (ImageFileA == null)

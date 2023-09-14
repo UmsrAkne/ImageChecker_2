@@ -62,48 +62,99 @@
                 </Style>
             </StackPanel.Resources>
 
-            <Canvas
-                Background="Blue"
-                ClipToBounds="True"
-                Height="{Binding PreviewContainer.Height}"
-                Width="{Binding PreviewContainer.Width}">
+            <StackPanel Orientation="Horizontal">
 
-                <Image
-                    Canvas.Left="{Binding PreviewContainer.ActualX}"
-                    Canvas.Top="{Binding PreviewContainer.ActualY}"
-                    Source="{Binding PreviewContainer.ImageFileA.FileInfo.FullName}">
-                    <Image.LayoutTransform>
-                        <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
-                    </Image.LayoutTransform>
-                </Image>
+                <Canvas
+                    Background="Blue"
+                    ClipToBounds="True"
+                    Height="{Binding PreviewContainer.Height}"
+                    Width="{Binding PreviewContainer.Width}">
 
-                <Image
-                    Canvas.Left="{Binding PreviewContainer.ActualX}"
-                    Canvas.Top="{Binding PreviewContainer.ActualY}"
-                    Source="{Binding PreviewContainer.ImageFileD.FileInfo.FullName}">
-                    <Image.LayoutTransform>
-                        <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
-                    </Image.LayoutTransform>
-                </Image>
+                    <Image
+                        Canvas.Left="{Binding PreviewContainer.ActualX}"
+                        Canvas.Top="{Binding PreviewContainer.ActualY}"
+                        Source="{Binding PreviewContainer.ImageFileA.FileInfo.FullName}">
+                        <Image.LayoutTransform>
+                            <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
+                        </Image.LayoutTransform>
+                    </Image>
 
-                <Image
-                    Canvas.Left="{Binding PreviewContainer.ActualX}"
-                    Canvas.Top="{Binding PreviewContainer.ActualY}"
-                    Source="{Binding PreviewContainer.ImageFileB.FileInfo.FullName}">
-                    <Image.LayoutTransform>
-                        <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
-                    </Image.LayoutTransform>
-                </Image>
+                    <Image
+                        Canvas.Left="{Binding PreviewContainer.ActualX}"
+                        Canvas.Top="{Binding PreviewContainer.ActualY}"
+                        Source="{Binding PreviewContainer.ImageFileD.FileInfo.FullName}">
+                        <Image.LayoutTransform>
+                            <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
+                        </Image.LayoutTransform>
+                    </Image>
 
-                <Image
-                    Canvas.Left="{Binding PreviewContainer.ActualX}"
-                    Canvas.Top="{Binding PreviewContainer.ActualY}"
-                    Source="{Binding PreviewContainer.ImageFileC.FileInfo.FullName}">
-                    <Image.LayoutTransform>
-                        <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
-                    </Image.LayoutTransform>
-                </Image>
-            </Canvas>
+                    <Image
+                        Canvas.Left="{Binding PreviewContainer.ActualX}"
+                        Canvas.Top="{Binding PreviewContainer.ActualY}"
+                        Source="{Binding PreviewContainer.ImageFileB.FileInfo.FullName}">
+                        <Image.LayoutTransform>
+                            <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
+                        </Image.LayoutTransform>
+                    </Image>
+
+                    <Image
+                        Canvas.Left="{Binding PreviewContainer.ActualX}"
+                        Canvas.Top="{Binding PreviewContainer.ActualY}"
+                        Source="{Binding PreviewContainer.ImageFileC.FileInfo.FullName}">
+                        <Image.LayoutTransform>
+                            <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
+                        </Image.LayoutTransform>
+                    </Image>
+                </Canvas>
+
+                <DockPanel Margin="2,0">
+
+                    <TextBlock
+                        DockPanel.Dock="Top"
+                        HorizontalAlignment="Center"
+                        Text="Y" />
+
+                    <Slider
+                        IsSnapToTickEnabled="True"
+                        Maximum="{Binding PreviewContainer.SlideRange.Bottom}"
+                        Minimum="{Binding PreviewContainer.SlideRange.Top}"
+                        Orientation="Vertical"
+                        TickFrequency="10"
+                        Value="{Binding PreviewContainer.Y}" />
+
+                </DockPanel>
+
+            </StackPanel>
+
+            <DockPanel Margin="0,2">
+                <TextBlock Margin="3,0" Text="X" />
+                <Slider
+                    IsSnapToTickEnabled="True"
+                    Maximum="{Binding PreviewContainer.SlideRange.Right}"
+                    Minimum="{Binding PreviewContainer.SlideRange.Left}"
+                    TickFrequency="10"
+                    Value="{Binding PreviewContainer.X}" />
+
+            </DockPanel>
+
+            <Border />
+
+            <DockPanel>
+                <TextBlock Margin="3,0" Text="Scale : " />
+                <TextBlock Text="{Binding PreviewContainer.Scale}" />
+
+                <Border Margin="4,0" />
+
+                <Slider
+                    IsSnapToTickEnabled="True"
+                    Maximum="5"
+                    Minimum="1"
+                    TickFrequency="1"
+                    Value="{Binding PreviewContainer.Scale}" />
+
+            </DockPanel>
+
+            <Border />
 
             <StackPanel Margin="3,0" Orientation="Horizontal">
                 <TextBlock Text="Width = " />
@@ -111,51 +162,18 @@
                 <Border Margin="6,0" />
                 <TextBlock Text="Height =  " />
                 <TextBlock Text="{Binding PreviewContainer.ScreenHeight}" />
+
+                <Border Margin="6,0" />
+                <TextBlock Text="X =  " />
+                <TextBlock Text="{Binding PreviewContainer.DisplayX}" />
+
+                <Border Margin="6,0" />
+                <TextBlock Text="Y =  " />
+                <TextBlock Text="{Binding PreviewContainer.DisplayY}" />
             </StackPanel>
 
             <Border />
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="3,0" Text="Scale : " />
-                <TextBlock Text="{Binding PreviewContainer.Scale}" />
-            </StackPanel>
-
-            <Slider
-                IsSnapToTickEnabled="True"
-                Maximum="5"
-                Minimum="1"
-                TickFrequency="1"
-                Value="{Binding PreviewContainer.Scale}" />
-
-            <Border />
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="3,0" Text="X : " />
-                <TextBlock Text="{Binding PreviewContainer.X}" />
-            </StackPanel>
-
-            <Slider
-                IsSnapToTickEnabled="True"
-                Maximum="{Binding PreviewContainer.SlideRange.Right}"
-                Minimum="{Binding PreviewContainer.SlideRange.Left}"
-                TickFrequency="10"
-                Value="{Binding PreviewContainer.X}" />
-
-            <Border />
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="3,0" Text="Y : " />
-                <TextBlock Text="{Binding PreviewContainer.Y}" />
-            </StackPanel>
-
-            <Slider
-                IsSnapToTickEnabled="True"
-                Maximum="{Binding PreviewContainer.SlideRange.Bottom}"
-                Minimum="{Binding PreviewContainer.SlideRange.Top}"
-                TickFrequency="10"
-                Value="{Binding PreviewContainer.Y}" />
-
-            <Border />
         </StackPanel>
 
         <Grid

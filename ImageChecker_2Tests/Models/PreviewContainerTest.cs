@@ -27,6 +27,28 @@ namespace ImageChecker_2Tests.Models
         }
         
         [Test]
+        [TestCase(1.0,0, 0)]
+        [TestCase(1.0,-640, -640)]
+        [TestCase(1.0,-1280, -1280)]
+        [TestCase(1.0,640, 640)]
+        [TestCase(1.0,1280, 1280)]
+        [TestCase(2.0,0, 640)]
+        [TestCase(2.0,640, 1280)]
+        [TestCase(2.0,1280, 1920)]
+        [TestCase(2.5,0, 960)]
+        public void DisplayXTest(double scale, double containerPosX, double exceptX)
+        {
+            var previewContainer = new PreviewContainer
+            {
+                Scale = scale,
+                X = containerPosX,
+                ImageFileA = new ImageFile("test") { Width = 1280, },
+            };
+
+            Assert.That(previewContainer.DisplayX, Is.EqualTo(exceptX));
+        }
+        
+        [Test]
         public void YTest()
         {
             var previewContainer = new PreviewContainer { Scale = 1.0, Y = 160, };
