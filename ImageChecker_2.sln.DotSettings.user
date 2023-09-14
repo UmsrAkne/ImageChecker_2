@@ -15,5 +15,7 @@
     &lt;TestId&gt;NUnit3x::65DAB4E8-0AD3-4C5D-B152-67904E3A3CB0::net6.0-windows::ImageChecker_2Tests.Models.TagGeneratorTest.GetTagErrorTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::65DAB4E8-0AD3-4C5D-B152-67904E3A3CB0::net6.0-windows::ImageChecker_2Tests.Models.TagGeneratorTest.GetTagNullTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::65DAB4E8-0AD3-4C5D-B152-67904E3A3CB0::net6.0-windows::ImageChecker_2Tests.Models.TagGeneratorTest.GetTagFromPreviewContainerTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::65DAB4E8-0AD3-4C5D-B152-67904E3A3CB0::net6.0-windows::ImageChecker_2Tests.Models.PreviewContainerTest.XTest_2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::65DAB4E8-0AD3-4C5D-B152-67904E3A3CB0::net6.0-windows::ImageChecker_2Tests.Models.PreviewContainerTest.DisplayXTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

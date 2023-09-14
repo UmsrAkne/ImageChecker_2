@@ -165,11 +165,11 @@
 
                 <Border Margin="6,0" />
                 <TextBlock Text="X =  " />
-                <TextBlock Text="{Binding PreviewContainer.X}" />
+                <TextBlock Text="{Binding PreviewContainer.DisplayX}" />
 
                 <Border Margin="6,0" />
                 <TextBlock Text="Y =  " />
-                <TextBlock Text="{Binding PreviewContainer.Y}" />
+                <TextBlock Text="{Binding PreviewContainer.DisplayY}" />
             </StackPanel>
 
             <Border />
