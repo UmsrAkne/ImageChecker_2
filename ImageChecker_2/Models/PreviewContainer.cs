@@ -1,4 +1,5 @@
 using System.Windows;
+using Prism.Commands;
 using Prism.Mvvm;
 
 namespace ImageChecker_2.Models
@@ -92,6 +93,27 @@ namespace ImageChecker_2.Models
         public ImageFile ImageFileC { get => imageFileC; set => SetProperty(ref imageFileC, value); }
 
         public ImageFile ImageFileD { get => imageFileD; set => SetProperty(ref imageFileD, value); }
+        
+        public DelegateCommand<object> SetPositionCommand => new DelegateCommand<object>((param) =>
+        {
+            var p = (Point)param;
+            if (p == new Point(0, 0))
+            {
+                X = (ImageWidth * Scale) / 2 * PreviewScreenScale;
+                Y = (ImageHeight * Scale) / 2 * PreviewScreenScale;
+                return;
+            }
+
+            if (p.X != 0)
+            {
+                X = p.X > 0 ? ((ImageWidth * Scale) - ScreenWidth) * -1 : 0;
+            }
+            
+            if (p.Y != 0)
+            {
+                Y = p.Y > 0 ? ((ImageHeight * Scale) - ScreenHeight) * -1 : 0;
+            }
+        });
         
         private double PreviewScreenScale { get; set; } = 0.25;
 

@@ -49,6 +49,21 @@ namespace ImageChecker_2Tests.Models
         }
         
         [Test]
+        [TestCase(1.0,0, 160)]
+        [TestCase(2.0,0, 960)]
+        public void DisplayXTest_サイズ違い(double scale, double containerPosX, double exceptX)
+        {
+            var previewContainer = new PreviewContainer
+            {
+                Scale = scale,
+                X = containerPosX,
+                ImageFileA = new ImageFile("test") { Width = 1600, },
+            };
+
+            Assert.That(previewContainer.DisplayX, Is.EqualTo(exceptX));
+        }
+        
+        [Test]
         public void YTest()
         {
             var previewContainer = new PreviewContainer { Scale = 1.0, Y = 160, };
