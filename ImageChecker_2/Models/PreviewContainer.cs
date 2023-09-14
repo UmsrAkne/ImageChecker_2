@@ -27,7 +27,7 @@ namespace ImageChecker_2.Models
             }
         }
 
-        public double DisplayX => (ImageFileA.Width * Scale / 2) + X - (Width / PreviewScreenScale / 2);
+        public double DisplayX => (ImageWidth * Scale / 2) + X - (Width / PreviewScreenScale / 2);
 
         public double ActualX => X * PreviewScreenScale;
 
@@ -46,7 +46,7 @@ namespace ImageChecker_2.Models
 
         public double ActualY => Y * PreviewScreenScale;
         
-        public double DisplayY => (ImageFileA.Height * Scale / 2) + Y - (Height / PreviewScreenScale / 2);
+        public double DisplayY => (ImageHeight * Scale / 2) + Y - (Height / PreviewScreenScale / 2);
 
         public double Scale
         {
@@ -95,6 +95,10 @@ namespace ImageChecker_2.Models
         
         private double PreviewScreenScale { get; set; } = 0.25;
 
+        private double ImageWidth => ImageFileA?.Width ?? 0;
+        
+        private double ImageHeight => ImageFileA?.Height ?? 0;
+        
         private void UpdateSlideRange()
         {
             if (ImageFileA == null)
