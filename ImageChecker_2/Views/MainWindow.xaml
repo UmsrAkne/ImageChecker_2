@@ -297,25 +297,49 @@
                 </Style>
             </Grid.Resources>
 
-            <ListBox
-                Grid.Column="0"
-                ItemsSource="{Binding ImageContainerA.FilteredFiles}"
-                Style="{StaticResource ImageListBoxStyle}" />
+            <DockPanel Grid.Column="0">
+                <DockPanel DockPanel.Dock="Top" Margin="3,2">
+                    <CheckBox IsChecked="{Binding ImageContainerA.IsEnabled}" VerticalAlignment="Center" />
+                    <ComboBox
+                        ItemsSource="{Binding ImageContainerA.FilteredFiles}"
+                        Margin="3,0"
+                        SelectedItem="{Binding ImageContainerA.CurrentFile}" />
+                </DockPanel>
+                <ListBox ItemsSource="{Binding ImageContainerA.FilteredFiles}" Style="{StaticResource ImageListBoxStyle}" />
+            </DockPanel>
 
-            <ListBox
-                Grid.Column="1"
-                ItemsSource="{Binding ImageContainerB.FilteredFiles}"
-                Style="{StaticResource ImageListBoxStyle}" />
+            <DockPanel Grid.Column="1">
+                <DockPanel DockPanel.Dock="Top" Margin="3,2">
+                    <CheckBox IsChecked="{Binding ImageContainerB.IsEnabled}" VerticalAlignment="Center" />
+                    <ComboBox
+                        ItemsSource="{Binding ImageContainerB.FilteredFiles}"
+                        Margin="3,0"
+                        SelectedItem="{Binding ImageContainerB.CurrentFile}" />
+                </DockPanel>
+                <ListBox ItemsSource="{Binding ImageContainerB.FilteredFiles}" Style="{StaticResource ImageListBoxStyle}" />
+            </DockPanel>
 
-            <ListBox
-                Grid.Column="2"
-                ItemsSource="{Binding ImageContainerC.FilteredFiles}"
-                Style="{StaticResource ImageListBoxStyle}" />
+            <DockPanel Grid.Column="2">
+                <DockPanel DockPanel.Dock="Top" Margin="3,2">
+                    <CheckBox IsChecked="{Binding ImageContainerC.IsEnabled}" VerticalAlignment="Center" />
+                    <ComboBox
+                        ItemsSource="{Binding ImageContainerC.FilteredFiles}"
+                        Margin="3,0"
+                        SelectedItem="{Binding ImageContainerC.CurrentFile}" />
+                </DockPanel>
+                <ListBox ItemsSource="{Binding ImageContainerC.FilteredFiles}" Style="{StaticResource ImageListBoxStyle}" />
+            </DockPanel>
 
-            <ListBox
-                Grid.Column="3"
-                ItemsSource="{Binding ImageContainerD.FilteredFiles}"
-                Style="{StaticResource ImageListBoxStyle}" />
+            <DockPanel Grid.Column="3">
+                <DockPanel DockPanel.Dock="Top" Margin="3,2">
+                    <CheckBox IsChecked="{Binding ImageContainerD.IsEnabled}" VerticalAlignment="Center" />
+                    <ComboBox
+                        ItemsSource="{Binding ImageContainerD.FilteredFiles}"
+                        Margin="3,0"
+                        SelectedItem="{Binding ImageContainerD.CurrentFile}" />
+                </DockPanel>
+                <ListBox ItemsSource="{Binding ImageContainerD.FilteredFiles}" Style="{StaticResource ImageListBoxStyle}" />
+            </DockPanel>
 
         </Grid>
     </Grid>

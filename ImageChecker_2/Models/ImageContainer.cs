@@ -12,6 +12,7 @@ namespace ImageChecker_2.Models
         private bool drawing;
         private int selectedIndex;
         private ImageFile currentFile;
+        private bool isEnabled;
 
         public ImageContainer(string keyChar)
         {
@@ -29,6 +30,8 @@ namespace ImageChecker_2.Models
         public bool Drawing { get => drawing; set => SetProperty(ref drawing, value); }
 
         public int SelectedIndex { get => selectedIndex; set => SetProperty(ref selectedIndex, value); }
+
+        public bool IsEnabled { get => isEnabled; set => SetProperty(ref isEnabled, value); }
 
         private List<ImageFile> Files { get; set; } = new List<ImageFile>();
 
