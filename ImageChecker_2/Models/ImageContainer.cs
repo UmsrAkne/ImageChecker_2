@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,11 +14,13 @@ namespace ImageChecker_2.Models
         private int selectedIndex;
         private ImageFile currentFile;
         private bool isEnabled;
-
+        
         public ImageContainer(string keyChar)
         {
             this.keyChar = keyChar;
         }
+        
+        public event EventHandler CurrentFileChanged;
 
         public List<ImageFile> FilteredFiles
         {
@@ -25,7 +28,17 @@ namespace ImageChecker_2.Models
             private set => SetProperty(ref filteredFiles, value);
         }
 
-        public ImageFile CurrentFile { get => currentFile; set => SetProperty(ref currentFile, value); }
+        public ImageFile CurrentFile
+        {
+            get => currentFile;
+            set
+            {
+                if (SetProperty(ref currentFile, value))
+                {
+                    CurrentFileChanged?.Invoke(this, EventArgs.Empty);
+                }
+            }
+        }
 
         public bool Drawing { get => drawing; set => SetProperty(ref drawing, value); }
 

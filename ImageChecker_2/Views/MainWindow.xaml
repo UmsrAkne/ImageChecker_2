@@ -305,7 +305,10 @@
                         Margin="3,0"
                         SelectedItem="{Binding ImageContainerA.CurrentFile}" />
                 </DockPanel>
-                <ListBox ItemsSource="{Binding ImageContainerA.FilteredFiles}" Style="{StaticResource ImageListBoxStyle}" />
+                <ListBox
+                    ItemsSource="{Binding ImageContainerA.FilteredFiles}"
+                    SelectedItem="{Binding ImageContainerA.CurrentFile}"
+                    Style="{StaticResource ImageListBoxStyle}" />
             </DockPanel>
 
             <DockPanel Grid.Column="1">
@@ -316,7 +319,10 @@
                         Margin="3,0"
                         SelectedItem="{Binding ImageContainerB.CurrentFile}" />
                 </DockPanel>
-                <ListBox ItemsSource="{Binding ImageContainerB.FilteredFiles}" Style="{StaticResource ImageListBoxStyle}" />
+                <ListBox
+                    ItemsSource="{Binding ImageContainerB.FilteredFiles}"
+                    SelectedItem="{Binding ImageContainerB.CurrentFile}"
+                    Style="{StaticResource ImageListBoxStyle}" />
             </DockPanel>
 
             <DockPanel Grid.Column="2">
@@ -327,7 +333,10 @@
                         Margin="3,0"
                         SelectedItem="{Binding ImageContainerC.CurrentFile}" />
                 </DockPanel>
-                <ListBox ItemsSource="{Binding ImageContainerC.FilteredFiles}" Style="{StaticResource ImageListBoxStyle}" />
+                <ListBox
+                    ItemsSource="{Binding ImageContainerC.FilteredFiles}"
+                    SelectedItem="{Binding ImageContainerC.CurrentFile}"
+                    Style="{StaticResource ImageListBoxStyle}" />
             </DockPanel>
 
             <DockPanel Grid.Column="3">
@@ -338,7 +347,10 @@
                         Margin="3,0"
                         SelectedItem="{Binding ImageContainerD.CurrentFile}" />
                 </DockPanel>
-                <ListBox ItemsSource="{Binding ImageContainerD.FilteredFiles}" Style="{StaticResource ImageListBoxStyle}" />
+                <ListBox
+                    ItemsSource="{Binding ImageContainerD.FilteredFiles}"
+                    SelectedItem="{Binding ImageContainerD.CurrentFile}"
+                    Style="{StaticResource ImageListBoxStyle}" />
             </DockPanel>
 
         </Grid>
