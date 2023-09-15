@@ -53,14 +53,14 @@ namespace ImageChecker_2.ViewModels
             ImageContainerC = new ImageContainer("C");
             ImageContainerD = new ImageContainer("D");
 
+            ImageContainerA.CurrentFileChanged += (sender, _) => PreviewContainer.ImageFileA = ((ImageContainer)sender)?.CurrentFile;
+            ImageContainerB.CurrentFileChanged += (sender, _) => PreviewContainer.ImageFileB = ((ImageContainer)sender)?.CurrentFile;
+            ImageContainerC.CurrentFileChanged += (sender, _) => PreviewContainer.ImageFileC = ((ImageContainer)sender)?.CurrentFile;
+            ImageContainerD.CurrentFileChanged += (sender, _) => PreviewContainer.ImageFileD = ((ImageContainer)sender)?.CurrentFile;
+
             var fs = filePaths.ToList();
             new List<ImageContainer> { ImageContainerA, ImageContainerB, ImageContainerC, ImageContainerD, }
                 .ForEach(c => c.Load(fs));
-
-            PreviewContainer.ImageFileA = ImageContainerA.CurrentFile;
-            PreviewContainer.ImageFileB = ImageContainerB.CurrentFile;
-            PreviewContainer.ImageFileC = ImageContainerC.CurrentFile;
-            PreviewContainer.ImageFileD = ImageContainerD.CurrentFile;
         }
     }
 }
