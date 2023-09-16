@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
+using System.Windows.Input;
 using ImageChecker_2.Models;
 using ImageChecker_2.Views;
 using Prism.Commands;
@@ -53,7 +55,38 @@ namespace ImageChecker_2.ViewModels
 
         public DelegateCommand ShowSettingPageCommand => new DelegateCommand(() =>
         {
-            dialogService.ShowDialog(nameof(SettingPage), new DialogParameters(),  _ => { }); 
+            dialogService.ShowDialog(nameof(SettingPage), new DialogParameters(), _ =>
+            {
+            });
+        });
+
+        public DelegateCommand<object> GenerateTagCommand => new DelegateCommand<object>((param) =>
+        {
+            if (param is not KeyBinding kb)
+            {
+                return;
+            }
+
+            var setting = Setting.Read("setting.xml");
+            var tagText = string.Empty;
+
+            switch (kb.Key)
+            {
+                case Key.D when (kb.Modifiers & ModifierKeys.Control) > 0 && (kb.Modifiers & ModifierKeys.Shift) > 0:
+                    tagText = TagGenerator.GetTag(setting.AnimationDrawTagBaseText, PreviewContainer);
+                    break;
+                case Key.D when (kb.Modifiers & ModifierKeys.Control) > 0:
+                    tagText = TagGenerator.GetTag(setting.DrawTagBaseText, PreviewContainer);
+                    break;
+                case Key.I when (kb.Modifiers & ModifierKeys.Control) > 0:
+                    tagText = TagGenerator.GetTag(setting.ImageTagBaseText, PreviewContainer);
+                    break;
+            }
+
+            if (!string.IsNullOrEmpty(tagText))
+            {
+                Clipboard.SetData(DataFormats.Text, tagText);
+            }
         });
 
         public void LoadImages(IEnumerable<string> filePaths)
@@ -63,10 +96,17 @@ namespace ImageChecker_2.ViewModels
             ImageContainerC = new ImageContainer("C");
             ImageContainerD = new ImageContainer("D");
 
-            ImageContainerA.CurrentFileChanged += (sender, _) => PreviewContainer.ImageFileA = ((ImageContainer)sender)?.CurrentFile;
-            ImageContainerB.CurrentFileChanged += (sender, _) => PreviewContainer.ImageFileB = ((ImageContainer)sender)?.CurrentFile;
-            ImageContainerC.CurrentFileChanged += (sender, _) => PreviewContainer.ImageFileC = ((ImageContainer)sender)?.CurrentFile;
-            ImageContainerD.CurrentFileChanged += (sender, _) => PreviewContainer.ImageFileD = ((ImageContainer)sender)?.CurrentFile;
+            ImageContainerA.CurrentFileChanged += (sender, _) =>
+                PreviewContainer.ImageFileA = ((ImageContainer)sender)?.CurrentFile;
+
+            ImageContainerB.CurrentFileChanged += (sender, _) =>
+                PreviewContainer.ImageFileB = ((ImageContainer)sender)?.CurrentFile;
+
+            ImageContainerC.CurrentFileChanged += (sender, _) =>
+                PreviewContainer.ImageFileC = ((ImageContainer)sender)?.CurrentFile;
+
+            ImageContainerD.CurrentFileChanged += (sender, _) =>
+                PreviewContainer.ImageFileD = ((ImageContainer)sender)?.CurrentFile;
 
             var fs = filePaths.ToList();
             new List<ImageContainer> { ImageContainerA, ImageContainerB, ImageContainerC, ImageContainerD, }
