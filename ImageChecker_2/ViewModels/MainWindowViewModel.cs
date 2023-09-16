@@ -1,21 +1,26 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ImageChecker_2.Models;
+using ImageChecker_2.Views;
+using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Services.Dialogs;
 
 namespace ImageChecker_2.ViewModels
 {
     // ReSharper disable once ClassNeverInstantiated.Global
     public class MainWindowViewModel : BindableBase
     {
+        private readonly IDialogService dialogService;
         private string title = "Image checker ver 2";
         private ImageContainer imageContainerA;
         private ImageContainer imageContainerB;
         private ImageContainer imageContainerC;
         private ImageContainer imageContainerD;
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(IDialogService dialogService)
         {
+            this.dialogService = dialogService;
         }
 
         public string Title { get => title; set => SetProperty(ref title, value); }
@@ -45,6 +50,11 @@ namespace ImageChecker_2.ViewModels
             get => imageContainerD;
             private set => SetProperty(ref imageContainerD, value);
         }
+
+        public DelegateCommand ShowSettingPageCommand => new DelegateCommand(() =>
+        {
+            dialogService.ShowDialog(nameof(SettingPage), new DialogParameters(),  _ => { }); 
+        });
 
         public void LoadImages(IEnumerable<string> filePaths)
         {

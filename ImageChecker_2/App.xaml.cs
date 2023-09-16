@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using ImageChecker_2.ViewModels;
 using ImageChecker_2.Views;
 using Prism.Ioc;
 
@@ -16,6 +17,7 @@ namespace ImageChecker_2
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterDialog<SettingPage, SettingPageViewModel>();
         }
     }
 }
