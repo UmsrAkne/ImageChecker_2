@@ -46,7 +46,7 @@
             Grid.Row="0">
             <MenuItem Header="File" />
             <MenuItem Header="View" />
-            <MenuItem Header="Setting" />
+            <MenuItem Command="{Binding ShowSettingPageCommand}" Header="Setting" />
         </Menu>
 
         <StackPanel
