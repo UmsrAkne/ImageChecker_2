@@ -46,6 +46,7 @@
             Grid.Row="0">
             <MenuItem Header="File" />
             <MenuItem Header="View" />
+            <MenuItem Header="Setting" />
         </Menu>
 
         <StackPanel
