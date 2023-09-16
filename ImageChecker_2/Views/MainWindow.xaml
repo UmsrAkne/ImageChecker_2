@@ -28,6 +28,27 @@
         </ResourceDictionary>
     </Window.Resources>
 
+    <Window.InputBindings>
+        <KeyBinding
+            Command="{Binding GenerateTagCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
+            Key="I"
+            Modifiers="Control" />
+
+        <KeyBinding
+            Command="{Binding GenerateTagCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
+            Key="D"
+            Modifiers="Control" />
+
+        <KeyBinding
+            Command="{Binding GenerateTagCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
+            Key="D"
+            Modifiers="Control + Shift" />
+
+    </Window.InputBindings>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
