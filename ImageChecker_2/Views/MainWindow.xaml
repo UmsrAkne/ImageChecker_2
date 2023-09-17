@@ -66,7 +66,20 @@
             Grid.ColumnSpan="2"
             Grid.Row="0">
             <MenuItem Header="File" />
-            <MenuItem Header="View" />
+            <MenuItem Header="View">
+                <MenuItem Command="{Binding ChangePreviewScaleCommand}" Header="プレビューサイズ 25%">
+                    <MenuItem.CommandParameter>
+                        <models:ZoomScale>Low</models:ZoomScale>
+                    </MenuItem.CommandParameter>
+                </MenuItem>
+
+                <MenuItem Command="{Binding ChangePreviewScaleCommand}" Header="プレビューサイズ 50%">
+                    <MenuItem.CommandParameter>
+                        <models:ZoomScale>Middle</models:ZoomScale>
+                    </MenuItem.CommandParameter>
+                </MenuItem>
+
+            </MenuItem>
             <MenuItem Command="{Binding ShowSettingPageCommand}" Header="Setting" />
         </Menu>
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
@@ -86,6 +87,27 @@ namespace ImageChecker_2.ViewModels
             if (!string.IsNullOrEmpty(tagText))
             {
                 Clipboard.SetData(DataFormats.Text, tagText);
+            }
+        });
+
+        public DelegateCommand<object> ChangePreviewScaleCommand => new DelegateCommand<object>((param) =>
+        {
+            var scale = (ZoomScale)param;
+
+            switch (scale)
+            {
+                case ZoomScale.Low:
+                    PreviewContainer.Width = 320;
+                    PreviewContainer.Height = 180;
+                    PreviewContainer.PreviewScreenScale = 0.25;
+                    break;
+                case ZoomScale.Middle:
+                    PreviewContainer.Width = 640;
+                    PreviewContainer.Height = 360;
+                    PreviewContainer.PreviewScreenScale = 0.5;
+                    break;
+                case ZoomScale.High:
+                    break;
             }
         });
 

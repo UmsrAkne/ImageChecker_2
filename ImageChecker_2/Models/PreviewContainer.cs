@@ -14,6 +14,9 @@ namespace ImageChecker_2.Models
         private ImageFile imageFileD;
         private double y;
         private Rect slideRange;
+        private double width = 320;
+        private double height = 180;
+        private double previewScreenScale = 0.25;
 
         public double X
         {
@@ -68,9 +71,31 @@ namespace ImageChecker_2.Models
 
         public double ActualScale => Scale * PreviewScreenScale;
 
-        public double Width { get; private set; } = 320;
+        public double Width
+        {
+            get => width;
+            set
+            {
+                if (SetProperty(ref width, value))
+                {
+                    RaisePropertyChanged(nameof(DisplayX));
+                    RaisePropertyChanged(nameof(ScreenWidth));
+                }
+            }
+        }
 
-        public double Height { get; private set; } = 180;
+        public double Height
+        {
+            get => height;
+            set
+            {
+                if (SetProperty(ref height, value))
+                {
+                    RaisePropertyChanged(nameof(DisplayY));
+                    RaisePropertyChanged(nameof(ScreenHeight));
+                }
+            }
+        }
 
         public double ScreenWidth => Width / PreviewScreenScale;
         
@@ -114,8 +139,25 @@ namespace ImageChecker_2.Models
                 Y = p.Y > 0 ? ((ImageHeight * Scale) - ScreenHeight) * -1 : 0;
             }
         });
-        
-        private double PreviewScreenScale { get; set; } = 0.25;
+
+        public double PreviewScreenScale
+        {
+            get => previewScreenScale;
+            set
+            {
+                if (SetProperty(ref previewScreenScale, value))
+                {
+                    RaisePropertyChanged(nameof(DisplayX));
+                    RaisePropertyChanged(nameof(ActualX));
+                    RaisePropertyChanged(nameof(ActualY));
+                    RaisePropertyChanged(nameof(DisplayY));
+                    RaisePropertyChanged(nameof(ActualScale));
+                    RaisePropertyChanged(nameof(ScreenWidth));
+                    RaisePropertyChanged(nameof(ScreenHeight));
+                    RaisePropertyChanged(nameof(SetPositionCommand));
+                }
+            }
+        }
 
         private double ImageWidth => ImageFileA?.Width ?? 0;
         
