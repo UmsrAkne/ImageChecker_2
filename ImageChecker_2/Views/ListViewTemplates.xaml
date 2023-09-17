@@ -6,6 +6,16 @@
     <converters:SizeFixConverter x:Key="SizeFixConverter" />
     <DataTemplate DataType="{x:Type models:ImageFile}" x:Key="ImageListViewDataTemplate">
         <Border>
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        <Trigger Property="ListBox.IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+
             <StackPanel>
                 <Image Source="{Binding FileInfo.FullName}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=ActualWidth, Converter={StaticResource SizeFixConverter}}" />
                 <TextBlock Text="{Binding FileInfo.Name}" />
