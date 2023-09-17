@@ -66,7 +66,20 @@
             Grid.ColumnSpan="2"
             Grid.Row="0">
             <MenuItem Header="File" />
-            <MenuItem Header="View" />
+            <MenuItem Header="View">
+                <MenuItem Command="{Binding ChangePreviewScaleCommand}" Header="プレビューサイズ 25%">
+                    <MenuItem.CommandParameter>
+                        <models:ZoomScale>Low</models:ZoomScale>
+                    </MenuItem.CommandParameter>
+                </MenuItem>
+
+                <MenuItem Command="{Binding ChangePreviewScaleCommand}" Header="プレビューサイズ 50%">
+                    <MenuItem.CommandParameter>
+                        <models:ZoomScale>Middle</models:ZoomScale>
+                    </MenuItem.CommandParameter>
+                </MenuItem>
+
+            </MenuItem>
             <MenuItem Command="{Binding ShowSettingPageCommand}" Header="Setting" />
         </Menu>
 
@@ -323,11 +336,13 @@
                 <DockPanel DockPanel.Dock="Top" Margin="3,2">
                     <CheckBox IsChecked="{Binding ImageContainerA.IsEnabled}" VerticalAlignment="Center" />
                     <ComboBox
+                        IsEnabled="{Binding ImageContainerA.IsEnabled}"
                         ItemsSource="{Binding ImageContainerA.FilteredFiles}"
                         Margin="3,0"
                         SelectedItem="{Binding ImageContainerA.CurrentFile}" />
                 </DockPanel>
                 <ListBox
+                    IsEnabled="{Binding ImageContainerA.IsEnabled}"
                     ItemsSource="{Binding ImageContainerA.FilteredFiles}"
                     SelectedItem="{Binding ImageContainerA.CurrentFile}"
                     Style="{StaticResource ImageListBoxStyle}" />
@@ -337,11 +352,13 @@
                 <DockPanel DockPanel.Dock="Top" Margin="3,2">
                     <CheckBox IsChecked="{Binding ImageContainerB.IsEnabled}" VerticalAlignment="Center" />
                     <ComboBox
+                        IsEnabled="{Binding ImageContainerB.IsEnabled}"
                         ItemsSource="{Binding ImageContainerB.FilteredFiles}"
                         Margin="3,0"
                         SelectedItem="{Binding ImageContainerB.CurrentFile}" />
                 </DockPanel>
                 <ListBox
+                    IsEnabled="{Binding ImageContainerB.IsEnabled}"
                     ItemsSource="{Binding ImageContainerB.FilteredFiles}"
                     SelectedItem="{Binding ImageContainerB.CurrentFile}"
                     Style="{StaticResource ImageListBoxStyle}" />
@@ -351,11 +368,13 @@
                 <DockPanel DockPanel.Dock="Top" Margin="3,2">
                     <CheckBox IsChecked="{Binding ImageContainerC.IsEnabled}" VerticalAlignment="Center" />
                     <ComboBox
+                        IsEnabled="{Binding ImageContainerC.IsEnabled}"
                         ItemsSource="{Binding ImageContainerC.FilteredFiles}"
                         Margin="3,0"
                         SelectedItem="{Binding ImageContainerC.CurrentFile}" />
                 </DockPanel>
                 <ListBox
+                    IsEnabled="{Binding ImageContainerC.IsEnabled}"
                     ItemsSource="{Binding ImageContainerC.FilteredFiles}"
                     SelectedItem="{Binding ImageContainerC.CurrentFile}"
                     Style="{StaticResource ImageListBoxStyle}" />
@@ -365,11 +384,13 @@
                 <DockPanel DockPanel.Dock="Top" Margin="3,2">
                     <CheckBox IsChecked="{Binding ImageContainerD.IsEnabled}" VerticalAlignment="Center" />
                     <ComboBox
+                        IsEnabled="{Binding ImageContainerD.IsEnabled}"
                         ItemsSource="{Binding ImageContainerD.FilteredFiles}"
                         Margin="3,0"
                         SelectedItem="{Binding ImageContainerD.CurrentFile}" />
                 </DockPanel>
                 <ListBox
+                    IsEnabled="{Binding ImageContainerD.IsEnabled}"
                     ItemsSource="{Binding ImageContainerD.FilteredFiles}"
                     SelectedItem="{Binding ImageContainerD.CurrentFile}"
                     Style="{StaticResource ImageListBoxStyle}" />
