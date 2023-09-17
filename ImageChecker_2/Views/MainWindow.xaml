@@ -341,6 +341,7 @@
                         SelectedItem="{Binding ImageContainerA.CurrentFile}" />
                 </DockPanel>
                 <ListBox
+                    IsEnabled="{Binding ImageContainerA.IsEnabled}"
                     ItemsSource="{Binding ImageContainerA.FilteredFiles}"
                     SelectedItem="{Binding ImageContainerA.CurrentFile}"
                     Style="{StaticResource ImageListBoxStyle}" />
@@ -355,6 +356,7 @@
                         SelectedItem="{Binding ImageContainerB.CurrentFile}" />
                 </DockPanel>
                 <ListBox
+                    IsEnabled="{Binding ImageContainerB.IsEnabled}"
                     ItemsSource="{Binding ImageContainerB.FilteredFiles}"
                     SelectedItem="{Binding ImageContainerB.CurrentFile}"
                     Style="{StaticResource ImageListBoxStyle}" />
@@ -369,6 +371,7 @@
                         SelectedItem="{Binding ImageContainerC.CurrentFile}" />
                 </DockPanel>
                 <ListBox
+                    IsEnabled="{Binding ImageContainerC.IsEnabled}"
                     ItemsSource="{Binding ImageContainerC.FilteredFiles}"
                     SelectedItem="{Binding ImageContainerC.CurrentFile}"
                     Style="{StaticResource ImageListBoxStyle}" />
@@ -383,6 +386,7 @@
                         SelectedItem="{Binding ImageContainerD.CurrentFile}" />
                 </DockPanel>
                 <ListBox
+                    IsEnabled="{Binding ImageContainerD.IsEnabled}"
                     ItemsSource="{Binding ImageContainerD.FilteredFiles}"
                     SelectedItem="{Binding ImageContainerD.CurrentFile}"
                     Style="{StaticResource ImageListBoxStyle}" />

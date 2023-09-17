@@ -13,7 +13,7 @@ namespace ImageChecker_2.Models
         private bool drawing;
         private int selectedIndex;
         private ImageFile currentFile;
-        private bool isEnabled;
+        private bool isEnabled = true;
         
         public ImageContainer(string keyChar)
         {
@@ -30,7 +30,7 @@ namespace ImageChecker_2.Models
 
         public ImageFile CurrentFile
         {
-            get => currentFile;
+            get => IsEnabled ? currentFile : null;
             set
             {
                 if (SetProperty(ref currentFile, value))
@@ -44,7 +44,17 @@ namespace ImageChecker_2.Models
 
         public int SelectedIndex { get => selectedIndex; set => SetProperty(ref selectedIndex, value); }
 
-        public bool IsEnabled { get => isEnabled; set => SetProperty(ref isEnabled, value); }
+        public bool IsEnabled
+        {
+            get => isEnabled;
+            set
+            {
+                if (SetProperty(ref isEnabled, value))
+                {
+                    CurrentFileChanged?.Invoke(this, EventArgs.Empty);
+                }
+            }
+        }
 
         private List<ImageFile> Files { get; set; } = new List<ImageFile>();
 
