@@ -329,6 +329,8 @@
 
             <Border />
 
+            <ListBox ItemsSource="{Binding Histories}" />
+
         </StackPanel>
 
         <Grid

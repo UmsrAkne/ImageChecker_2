@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
@@ -8,6 +8,7 @@ using ImageChecker_2.Views;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
+using Point = System.Drawing.Point;
 
 namespace ImageChecker_2.ViewModels
 {
@@ -54,6 +55,8 @@ namespace ImageChecker_2.ViewModels
             private set => SetProperty(ref imageContainerD, value);
         }
 
+        public ObservableCollection<History> Histories { get; private set; } = new ();
+
         public DelegateCommand ShowSettingPageCommand => new DelegateCommand(() =>
         {
             dialogService.ShowDialog(nameof(SettingPage), new DialogParameters(), _ =>
@@ -87,6 +90,13 @@ namespace ImageChecker_2.ViewModels
             if (!string.IsNullOrEmpty(tagText))
             {
                 Clipboard.SetData(DataFormats.Text, tagText);
+                Histories.Add(new History
+                {
+                    TagText = tagText,
+                    Scale = PreviewContainer.Scale,
+                    Pos = new Point((int)PreviewContainer.X, (int)PreviewContainer.Y),
+                    DisplayPos = new Point((int)PreviewContainer.DisplayX, (int)PreviewContainer.DisplayY),
+                });
             }
         });
 
