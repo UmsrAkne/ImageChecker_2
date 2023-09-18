@@ -1,3 +1,4 @@
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -16,12 +17,14 @@ namespace ImageChecker.Models
             base.OnAttached();
             vm = AssociatedObject.DataContext as MainWindowViewModel;
             AssociatedObject.MouseMove += AssociatedObjectOnMouseMove;
+            AssociatedObject.MouseUp += AssociatedObjectOnMouseUp;
         }
 
         protected override void OnDetaching()
         {
             base.OnDetaching();
             AssociatedObject.MouseMove -= AssociatedObjectOnMouseMove;
+            AssociatedObject.MouseUp -= AssociatedObjectOnMouseUp;
         }
 
         private void AssociatedObjectOnMouseMove(object sender, MouseEventArgs e)
@@ -46,6 +49,12 @@ namespace ImageChecker.Models
             {
                 lastPoint = new Point(0, 0);
             }
+        }
+
+        private void AssociatedObjectOnMouseUp(object sender, MouseEventArgs e)
+        {
+            vm.PreviewContainer.X = Math.Round(vm.PreviewContainer.X / 10) * 10;
+            vm.PreviewContainer.Y = Math.Round(vm.PreviewContainer.Y / 10) * 10;
         }
     }
 }
