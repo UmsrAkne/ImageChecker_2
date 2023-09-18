@@ -48,6 +48,15 @@
             Key="D"
             Modifiers="Control + Shift" />
 
+        <KeyBinding
+            Command="{Binding PreviewContainer.SetPositionCommand}"
+            Key="D0"
+            Modifiers="Control">
+            <KeyBinding.CommandParameter>
+                <Point X="-0" Y="0" />
+            </KeyBinding.CommandParameter>
+        </KeyBinding>
+
     </Window.InputBindings>
 
     <Grid>

@@ -124,8 +124,7 @@ namespace ImageChecker_2.Models
             var p = (Point)param;
             if (p == new Point(0, 0))
             {
-                X = (ImageWidth * Scale) / 2 * PreviewScreenScale;
-                Y = (ImageHeight * Scale) / 2 * PreviewScreenScale;
+                SetCenter();
                 return;
             }
 
@@ -162,6 +161,12 @@ namespace ImageChecker_2.Models
         private double ImageWidth => ImageFileA?.Width ?? 0;
         
         private double ImageHeight => ImageFileA?.Height ?? 0;
+
+        public void SetCenter()
+        {
+            X = -((ImageWidth * Scale) - ScreenWidth) / 2;
+            Y = -((ImageHeight * Scale) - ScreenHeight) / 2;
+        }
         
         private void UpdateSlideRange()
         {
