@@ -1,0 +1,59 @@
+<UserControl
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    mc:Ignorable="d"
+    x:Class="ImageChecker_2.Views.ImageContainerSelector"
+    x:Name="Root"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:converters="clr-namespace:ImageChecker_2.Models.Converters.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:ImageChecker_2.Models"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <converters:SizeFixConverter x:Key="SizeFixConverter" />
+    </UserControl.Resources>
+
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Margin="3,2">
+            <CheckBox IsChecked="{Binding ImageContainer.IsEnabled, ElementName=Root}" />
+            <ComboBox
+                IsEnabled="{Binding ImageContainer.IsEnabled, ElementName=Root}"
+                ItemsSource="{Binding ImageContainer.FilteredFiles, ElementName=Root}"
+                Margin="3,0"
+                SelectedItem="{Binding ImageContainer.CurrentFile, ElementName=Root}" />
+        </DockPanel>
+
+        <ListBox
+            HorizontalAlignment="Stretch"
+            IsEnabled="{Binding ImageContainer.IsEnabled, ElementName=Root}"
+            ItemsSource="{Binding ImageContainer.FilteredFiles, ElementName=Root}"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            SelectedItem="{Binding ImageContainer.CurrentFile, ElementName=Root}"
+            VirtualizingPanel.ScrollUnit="Pixel">
+            <ListBox.ItemTemplate>
+
+                <DataTemplate DataType="{x:Type models:ImageFile}">
+                    <Border>
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Style.Triggers>
+                                    <Trigger Property="ListBox.IsEnabled" Value="False">
+                                        <Setter Property="Opacity" Value="0.5" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+
+                        <StackPanel>
+                            <Image Source="{Binding FileInfo.FullName}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=ActualWidth, Converter={StaticResource SizeFixConverter}}" />
+                            <TextBlock Text="{Binding FileInfo.Name}" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</UserControl>
