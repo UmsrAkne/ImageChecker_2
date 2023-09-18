@@ -108,7 +108,17 @@ namespace ImageChecker_2.Models
             get => imageFileA;
             set
             {
+                var oldIndex = imageFileA?.Index ?? -1;
+                var newIndex = value?.Index ?? -1;
+                
                 SetProperty(ref imageFileA, value);
+                
+                if (oldIndex != newIndex)
+                {
+                    // 新旧のメインインデックスが異なるということは、類似画像ではないため、ポジションをリセットする。
+                    ResetPostAndScaleCommand.Execute();
+                }
+                
                 UpdateSlideRange();
             }
         }
