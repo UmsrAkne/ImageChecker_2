@@ -12,6 +12,7 @@
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="clr-namespace:ImageChecker_2.Models"
+    xmlns:models1="clr-namespace:ImageChecker.Models"
     xmlns:prism="http://prismlibrary.com/"
     xmlns:viewModels="clr-namespace:ImageChecker_2.ViewModels"
     xmlns:views="clr-namespace:ImageChecker_2.Views"
@@ -251,6 +252,10 @@
                             <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
                         </Image.LayoutTransform>
                     </Image>
+
+                    <i:Interaction.Behaviors>
+                        <models1:DragBehavior />
+                    </i:Interaction.Behaviors>
                 </Canvas>
 
                 <DockPanel
