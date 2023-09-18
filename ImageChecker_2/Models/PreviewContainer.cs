@@ -139,6 +139,12 @@ namespace ImageChecker_2.Models
             }
         });
 
+        public DelegateCommand ResetPostAndScaleCommand => new DelegateCommand(() =>
+        {
+            Scale = 1.0;
+            SetCenter();
+        });
+
         public double PreviewScreenScale
         {
             get => previewScreenScale;

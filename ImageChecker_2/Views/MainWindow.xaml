@@ -57,6 +57,12 @@
             </KeyBinding.CommandParameter>
         </KeyBinding>
 
+        <KeyBinding
+            Command="{Binding PreviewContainer.ResetPostAndScaleCommand}"
+            Key="D1"
+            Modifiers="Control" />
+
+
     </Window.InputBindings>
 
     <Grid>
