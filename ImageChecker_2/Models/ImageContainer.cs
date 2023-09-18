@@ -68,6 +68,7 @@ namespace ImageChecker_2.Models
 
             FilteredFiles = Files.ToList();
             CurrentFile = Files.FirstOrDefault();
+            IsEnabled = Files.Count > 0;
             
             if (Files.Count == 0)
             {
