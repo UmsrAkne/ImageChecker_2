@@ -72,5 +72,24 @@ namespace ImageChecker_2Tests.Models
             previewContainer.Y = 40;
             Assert.That(previewContainer.ActualY, Is.EqualTo(10));
         }
+
+        [Test]
+        public void SetCenterTest()
+        {
+            var previewContainer = new PreviewContainer() { Scale = 1.0, X = 0, };
+            previewContainer.ImageFileA = new ImageFile("path") { Width = 1280, };
+            Assert.That(previewContainer.ActualX, Is.EqualTo(0));
+            
+            previewContainer.SetCenter();
+            Assert.That(previewContainer.X, Is.EqualTo(0));
+
+            previewContainer.Scale = 2.0;
+            previewContainer.SetCenter();
+            Assert.That(previewContainer.X, Is.EqualTo(-640));
+            
+            previewContainer.Scale = 3.0;
+            previewContainer.SetCenter();
+            Assert.That(previewContainer.X, Is.EqualTo(-1280));
+        }
     }
 }

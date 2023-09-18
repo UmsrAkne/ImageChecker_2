@@ -108,7 +108,17 @@ namespace ImageChecker_2.Models
             get => imageFileA;
             set
             {
+                var oldIndex = imageFileA?.Index ?? -1;
+                var newIndex = value?.Index ?? -1;
+                
                 SetProperty(ref imageFileA, value);
+                
+                if (oldIndex != newIndex)
+                {
+                    // 新旧のメインインデックスが異なるということは、類似画像ではないため、ポジションをリセットする。
+                    ResetPostAndScaleCommand.Execute();
+                }
+                
                 UpdateSlideRange();
             }
         }
@@ -124,8 +134,7 @@ namespace ImageChecker_2.Models
             var p = (Point)param;
             if (p == new Point(0, 0))
             {
-                X = (ImageWidth * Scale) / 2 * PreviewScreenScale;
-                Y = (ImageHeight * Scale) / 2 * PreviewScreenScale;
+                SetCenter();
                 return;
             }
 
@@ -138,6 +147,12 @@ namespace ImageChecker_2.Models
             {
                 Y = p.Y > 0 ? ((ImageHeight * Scale) - ScreenHeight) * -1 : 0;
             }
+        });
+
+        public DelegateCommand ResetPostAndScaleCommand => new DelegateCommand(() =>
+        {
+            Scale = 1.0;
+            SetCenter();
         });
 
         public double PreviewScreenScale
@@ -162,6 +177,12 @@ namespace ImageChecker_2.Models
         private double ImageWidth => ImageFileA?.Width ?? 0;
         
         private double ImageHeight => ImageFileA?.Height ?? 0;
+
+        public void SetCenter()
+        {
+            X = -((ImageWidth * Scale) - ScreenWidth) / 2;
+            Y = -((ImageHeight * Scale) - ScreenHeight) / 2;
+        }
         
         private void UpdateSlideRange()
         {
