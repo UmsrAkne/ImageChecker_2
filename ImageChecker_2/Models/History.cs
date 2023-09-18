@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Drawing;
 
 namespace ImageChecker_2.Models
@@ -13,13 +12,12 @@ namespace ImageChecker_2.Models
 
         public Point DisplayPos { get; set; }
         
-        /// <summary>
-        /// ImageFiles のリストです。要素数の最大値は 4 です。
-        /// デフォルトでは全ての要素に null が入っています。
-        /// </summary>
-        /// <value>
-        /// ImageFiles のリストです。
-        /// </value>
-        public List<ImageFile> ImageFiles { get; private set; } = new (4) { null, null, null, null, };
+        public ImageFile ImageFileA { get; set; }
+        
+        public ImageFile ImageFileB { get; set; }
+        
+        public ImageFile ImageFileC { get; set; }
+        
+        public ImageFile ImageFileD { get; set; }
     }
 }

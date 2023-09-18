@@ -90,13 +90,19 @@ namespace ImageChecker_2.ViewModels
             if (!string.IsNullOrEmpty(tagText))
             {
                 Clipboard.SetData(DataFormats.Text, tagText);
-                Histories.Add(new History
+                var h = new History()
                 {
                     TagText = tagText,
                     Scale = PreviewContainer.Scale,
                     Pos = new Point((int)PreviewContainer.X, (int)PreviewContainer.Y),
                     DisplayPos = new Point((int)PreviewContainer.DisplayX, (int)PreviewContainer.DisplayY),
-                });
+                    ImageFileA = ImageContainerA.CurrentFile,
+                    ImageFileB = ImageContainerB.CurrentFile,
+                    ImageFileC = ImageContainerC.CurrentFile,
+                    ImageFileD = ImageContainerD.CurrentFile,
+                };
+
+                Histories.Add(h);
             }
         });
 
