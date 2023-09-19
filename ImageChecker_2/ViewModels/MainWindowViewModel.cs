@@ -105,6 +105,35 @@ namespace ImageChecker_2.ViewModels
                 Histories.Add(h);
             }
         });
+        
+        public DelegateCommand<History> RestoreHistoryCommand => new DelegateCommand<History>(h =>
+        {
+            if (h == null)
+            {
+                return;
+            }
+
+            ImageContainerA.CurrentFile = h.ImageFileA;
+            ImageContainerB.CurrentFile = h.ImageFileB;
+            ImageContainerC.CurrentFile = h.ImageFileC;
+            ImageContainerD.CurrentFile = h.ImageFileD;
+
+            PreviewContainer.Scale = h.Scale;
+            PreviewContainer.X = h.Pos.X;
+            PreviewContainer.Y = h.Pos.Y;
+        });
+
+        public DelegateCommand<History> RestorePreviewStatusCommand => new DelegateCommand<History>(h =>
+        {
+            if (h == null)
+            {
+                return;
+            }
+
+            PreviewContainer.Scale = h.Scale;
+            PreviewContainer.X = h.Pos.X;
+            PreviewContainer.Y = h.Pos.Y;
+        });
 
         public DelegateCommand<object> ChangePreviewScaleCommand => new DelegateCommand<object>((param) =>
         {
