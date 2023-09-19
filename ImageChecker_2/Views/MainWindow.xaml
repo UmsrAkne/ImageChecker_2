@@ -103,7 +103,8 @@
         <StackPanel
             Grid.Column="0"
             Grid.Row="1"
-            Margin="3">
+            Margin="3"
+            x:Name="CanvasStackPanel">
 
             <StackPanel.Resources>
                 <Style TargetType="Border">
@@ -329,65 +330,68 @@
 
             <Border />
 
-            <ListBox
-                ItemsSource="{Binding Histories}"
-                MaxWidth="{Binding RelativeSource={RelativeSource AncestorType=StackPanel}, Path=ActualWidth}"
-                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                ScrollViewer.VerticalScrollBarVisibility="Visible"
-                VirtualizingPanel.ScrollUnit="Pixel">
-
-                <ListBox.ItemTemplate>
-                    <DataTemplate DataType="{x:Type models:History}">
-                        <Border
-                            BorderBrush="DimGray"
-                            BorderThickness="0,0,0,1"
-                            Margin="2,0">
-
-                            <StackPanel>
-                                <TextBlock Text="{Binding TagText}" />
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="a = " />
-                                    <TextBlock Text="{Binding ImageFileA}" />
-                                    <Border Margin="4,0" Width="0" />
-                                    <TextBlock Text=",b = " />
-                                    <TextBlock Text="{Binding ImageFileB}" />
-                                    <Border Margin="4,0" Width="0" />
-                                    <TextBlock Text=",c = " />
-                                    <TextBlock Text="{Binding ImageFileC}" />
-                                    <Border Margin="4,0" Width="0" />
-                                    <TextBlock Text=",d = " />
-                                    <TextBlock Text="{Binding ImageFileD}" />
-                                </StackPanel>
-
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="x = " />
-                                    <TextBlock Text="{Binding DisplayPos.X}" />
-                                    <Border Margin="4,0" Width="0" />
-                                    <TextBlock Text=",y = " />
-                                    <TextBlock Text="{Binding DisplayPos.Y}" />
-                                    <Border Margin="4,0" Width="0" />
-                                    <TextBlock Text=",scale = " />
-                                    <TextBlock Text="{Binding Scale}" />
-                                </StackPanel>
-
-                                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                                    <Button
-                                        Content="位置を設定"
-                                        Margin="2,0"
-                                        Padding="5,0" />
-
-                                    <Button
-                                        Content="画像と位置を設定"
-                                        Margin="2,0"
-                                        Padding="5,0" />
-                                </StackPanel>
-                            </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-
         </StackPanel>
+
+        <ListBox
+            Grid.Column="0"
+            Grid.Row="2"
+            HorizontalContentAlignment="Stretch"
+            ItemsSource="{Binding Histories}"
+            MaxWidth="{Binding ActualWidth, ElementName=CanvasStackPanel}"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            VirtualizingPanel.ScrollUnit="Pixel">
+
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="{x:Type models:History}">
+                    <Border
+                        BorderBrush="DimGray"
+                        BorderThickness="0,0,0,1"
+                        Margin="2,0">
+
+                        <StackPanel>
+                            <TextBlock Text="{Binding TagText}" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="a = " />
+                                <TextBlock Text="{Binding ImageFileA}" />
+                                <Border Margin="4,0" Width="0" />
+                                <TextBlock Text=",b = " />
+                                <TextBlock Text="{Binding ImageFileB}" />
+                                <Border Margin="4,0" Width="0" />
+                                <TextBlock Text=",c = " />
+                                <TextBlock Text="{Binding ImageFileC}" />
+                                <Border Margin="4,0" Width="0" />
+                                <TextBlock Text=",d = " />
+                                <TextBlock Text="{Binding ImageFileD}" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="x = " />
+                                <TextBlock Text="{Binding DisplayPos.X}" />
+                                <Border Margin="4,0" Width="0" />
+                                <TextBlock Text=",y = " />
+                                <TextBlock Text="{Binding DisplayPos.Y}" />
+                                <Border Margin="4,0" Width="0" />
+                                <TextBlock Text=",scale = " />
+                                <TextBlock Text="{Binding Scale}" />
+                            </StackPanel>
+
+                            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                <Button
+                                    Content="位置を設定"
+                                    Margin="2,0"
+                                    Padding="5,0" />
+
+                                <Button
+                                    Content="画像と位置を設定"
+                                    Margin="2,0"
+                                    Padding="5,0" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <Grid
             Grid.Column="1"
