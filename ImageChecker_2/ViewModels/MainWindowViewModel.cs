@@ -96,10 +96,10 @@ namespace ImageChecker_2.ViewModels
                     Scale = PreviewContainer.Scale,
                     Pos = new Point((int)PreviewContainer.X, (int)PreviewContainer.Y),
                     DisplayPos = new Point((int)PreviewContainer.DisplayX, (int)PreviewContainer.DisplayY),
-                    ImageFileA = ImageContainerA.CurrentFile,
-                    ImageFileB = ImageContainerB.CurrentFile,
-                    ImageFileC = ImageContainerC.CurrentFile,
-                    ImageFileD = ImageContainerD.CurrentFile,
+                    ImageFileA = ImageContainerA?.CurrentFile,
+                    ImageFileB = ImageContainerB?.CurrentFile,
+                    ImageFileC = ImageContainerC?.CurrentFile,
+                    ImageFileD = ImageContainerD?.CurrentFile,
                 };
 
                 Histories.Add(h);
