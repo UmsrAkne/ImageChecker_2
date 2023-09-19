@@ -103,7 +103,8 @@
         <StackPanel
             Grid.Column="0"
             Grid.Row="1"
-            Margin="3">
+            Margin="3"
+            x:Name="CanvasStackPanel">
 
             <StackPanel.Resources>
                 <Style TargetType="Border">
@@ -330,6 +331,17 @@
             <Border />
 
         </StackPanel>
+
+        <ListBox
+            Grid.Column="0"
+            Grid.Row="2"
+            HorizontalContentAlignment="Stretch"
+            ItemTemplate="{StaticResource HistoryListBoxDataTemplate}"
+            ItemsSource="{Binding Histories}"
+            MaxWidth="{Binding ActualWidth, ElementName=CanvasStackPanel}"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            VirtualizingPanel.ScrollUnit="Pixel" />
 
         <Grid
             Grid.Column="1"
