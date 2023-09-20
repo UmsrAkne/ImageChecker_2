@@ -156,6 +156,13 @@ namespace ImageChecker_2.ViewModels
             }
         });
 
+        public DelegateCommand<object> ChangeScreenSizeCommand => new DelegateCommand<object>((rect) =>
+        {
+            var r = (Rect)rect;
+            PreviewContainer.Width = r.Width;
+            PreviewContainer.Height = r.Height;
+        });
+
         public void LoadImages(IEnumerable<string> filePaths)
         {
             ImageContainerA = new ImageContainer("A");

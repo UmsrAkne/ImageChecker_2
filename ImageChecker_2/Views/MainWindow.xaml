@@ -96,6 +96,18 @@
                     </MenuItem.CommandParameter>
                 </MenuItem>
 
+                <MenuItem Command="{Binding ChangeScreenSizeCommand}" Header="スクリーンサイズ　1280 x 720">
+                    <MenuItem.CommandParameter>
+                        <Rect Height="180" Width="320" />
+                    </MenuItem.CommandParameter>
+                </MenuItem>
+
+                <MenuItem Command="{Binding ChangeScreenSizeCommand}" Header="スクリーンサイズ　1680 x 720">
+                    <MenuItem.CommandParameter>
+                        <Rect Height="180" Width="420" />
+                    </MenuItem.CommandParameter>
+                </MenuItem>
+
             </MenuItem>
             <MenuItem Command="{Binding ShowSettingPageCommand}" Header="Setting" />
         </Menu>
