@@ -222,7 +222,6 @@
                 </Button>
 
                 <Canvas
-                    Background="Blue"
                     ClipToBounds="True"
                     Grid.Column="1"
                     Grid.Row="1"
