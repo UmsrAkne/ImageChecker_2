@@ -49,6 +49,10 @@
                         <StackPanel>
                             <Image Source="{Binding FileInfo.FullName}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=ActualWidth, Converter={StaticResource SizeFixConverter}}" />
                             <TextBlock Text="{Binding FileInfo.Name}" />
+                            <Border
+                                Background="Black"
+                                Height="2"
+                                Margin="0,5" />
                         </StackPanel>
                     </Border>
                 </DataTemplate>
