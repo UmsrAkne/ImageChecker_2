@@ -72,6 +72,13 @@
                         Content="画像と位置を設定"
                         Margin="2,0"
                         Padding="5,0" />
+
+                    <Button
+                        Command="{Binding CopyTagCommand}"
+                        CommandParameter="{Binding}"
+                        Content="タグをコピー"
+                        Margin="2,0"
+                        Padding="5,0" />
                 </StackPanel>
             </StackPanel>
         </Border>
