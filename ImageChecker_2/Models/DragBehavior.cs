@@ -5,11 +5,11 @@ using System.Windows.Input;
 using ImageChecker_2.ViewModels;
 using Microsoft.Xaml.Behaviors;
 
-namespace ImageChecker.Models
+namespace ImageChecker_2.Models
 {
     public class DragBehavior : Behavior<Canvas>
     {
-        private Point lastPoint = new (0, 0);
+        private Point lastPoint = new Point(0, 0);
         private MainWindowViewModel vm;
 
         protected override void OnAttached()

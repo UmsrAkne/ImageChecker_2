@@ -55,7 +55,7 @@ namespace ImageChecker_2.ViewModels
             private set => SetProperty(ref imageContainerD, value);
         }
 
-        public ObservableCollection<History> Histories { get; private set; } = new ();
+        public ObservableCollection<History> Histories { get; private set; } = new ObservableCollection<History>();
 
         public DelegateCommand ShowSettingPageCommand => new DelegateCommand(() =>
         {
@@ -66,7 +66,7 @@ namespace ImageChecker_2.ViewModels
 
         public DelegateCommand<object> GenerateTagCommand => new DelegateCommand<object>((param) =>
         {
-            if (param is not KeyBinding kb)
+            if (!(param is KeyBinding kb))
             {
                 return;
             }

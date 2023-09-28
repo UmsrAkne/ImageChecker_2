@@ -30,19 +30,24 @@ namespace ImageChecker_2.Models
         {
             // ファイルパスの一覧の配列
             var files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            var vm = ((Window)sender).DataContext as MainWindowViewModel;
 
-            if (files is { Length: 1, } && Directory.Exists(files.First()))
+            if (!(((Window)sender).DataContext is MainWindowViewModel vm))
+            {
+                return;
+            }
+
+            if (files?.Length == 1 && Directory.Exists(files.First()))
             {
                 // files の要素数が 1 でドロップアイテムがディレクトリならば、画像用ディレクトリがドロップされたということなので
                 // ディレクトリの内容をロードして渡す。
-                vm?.LoadImages(Directory.GetFiles(files.First()));
-                vm!.Title = files.First();
+                vm.LoadImages(Directory.GetFiles(files.First()));
+                vm.Title = files.First();
+
                 return;
             }
             
             // 上記の条件を満たさない場合は、画像ファイルが一つ以上直接ドロップされているはずなので、そのまま渡す。
-            vm?.LoadImages(files);
+            vm.LoadImages(files);
         }
 
         private void AssociatedObject_PreviewDragOver(object sender, DragEventArgs e)
