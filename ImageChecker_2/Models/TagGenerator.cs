@@ -22,7 +22,7 @@ namespace ImageChecker_2.Models
         /// </param>
         /// <returns>baseText に置き換え処理を加えた文字列を返します。</returns>
         /// <exception cref="ArgumentException">imageFiles が null であるか、リストのサイズが 4 以外の場合にスローされます。</exception>
-        public static string GetTag(string baseText, [NotNull] List<ImageFile> imageFiles)
+        public static string GetTag(string baseText, List<ImageFile> imageFiles)
         {
             if (imageFiles.Count != 4)
             {
