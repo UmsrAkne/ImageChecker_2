@@ -40,9 +40,9 @@ namespace ImageChecker_2Tests.Models
         {
             var previewContainer = new PreviewContainer
             {
+                ImageFileA = new ImageFile("test") { Width = 1280, },
                 Scale = scale,
                 X = containerPosX,
-                ImageFileA = new ImageFile("test") { Width = 1280, },
             };
 
             Assert.That(previewContainer.DisplayX, Is.EqualTo(exceptX));
@@ -55,9 +55,9 @@ namespace ImageChecker_2Tests.Models
         {
             var previewContainer = new PreviewContainer
             {
+                ImageFileA = new ImageFile("test") { Width = 1600, },
                 Scale = scale,
                 X = containerPosX,
-                ImageFileA = new ImageFile("test") { Width = 1600, },
             };
 
             Assert.That(previewContainer.DisplayX, Is.EqualTo(exceptX));
