@@ -230,6 +230,8 @@
                     <Image
                         Canvas.Left="{Binding PreviewContainer.ActualX}"
                         Canvas.Top="{Binding PreviewContainer.ActualY}"
+                        Width="{Binding PreviewContainer.ImageFileA.Width}"
+                        Height="{Binding PreviewContainer.ImageFileA.Height}"
                         Source="{Binding PreviewContainer.ImageFileA.FileInfo.FullName}">
                         <Image.LayoutTransform>
                             <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
@@ -239,6 +241,8 @@
                     <Image
                         Canvas.Left="{Binding PreviewContainer.ActualX}"
                         Canvas.Top="{Binding PreviewContainer.ActualY}"
+                        Width="{Binding PreviewContainer.ImageFileD.Width}"
+                        Height="{Binding PreviewContainer.ImageFileD.Height}"
                         Source="{Binding PreviewContainer.ImageFileD.FileInfo.FullName}">
                         <Image.LayoutTransform>
                             <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
@@ -248,6 +252,8 @@
                     <Image
                         Canvas.Left="{Binding PreviewContainer.ActualX}"
                         Canvas.Top="{Binding PreviewContainer.ActualY}"
+                        Width="{Binding PreviewContainer.ImageFileB.Width}"
+                        Height="{Binding PreviewContainer.ImageFileB.Height}"
                         Source="{Binding PreviewContainer.ImageFileB.FileInfo.FullName}">
                         <Image.LayoutTransform>
                             <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
@@ -257,6 +263,8 @@
                     <Image
                         Canvas.Left="{Binding PreviewContainer.ActualX}"
                         Canvas.Top="{Binding PreviewContainer.ActualY}"
+                        Width="{Binding PreviewContainer.ImageFileC.Width}"
+                        Height="{Binding PreviewContainer.ImageFileC.Height}"
                         Source="{Binding PreviewContainer.ImageFileC.FileInfo.FullName}">
                         <Image.LayoutTransform>
                             <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
