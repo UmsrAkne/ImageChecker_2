@@ -230,9 +230,9 @@
                     <Image
                         Canvas.Left="{Binding PreviewContainer.ActualX}"
                         Canvas.Top="{Binding PreviewContainer.ActualY}"
-                        Width="{Binding PreviewContainer.ImageFileA.Width}"
                         Height="{Binding PreviewContainer.ImageFileA.Height}"
-                        Source="{Binding PreviewContainer.ImageFileA.FileInfo.FullName}">
+                        Source="{Binding PreviewContainer.ImageFileA.FileInfo.FullName}"
+                        Width="{Binding PreviewContainer.ImageFileA.Width}">
                         <Image.LayoutTransform>
                             <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
                         </Image.LayoutTransform>
@@ -241,9 +241,9 @@
                     <Image
                         Canvas.Left="{Binding PreviewContainer.ActualX}"
                         Canvas.Top="{Binding PreviewContainer.ActualY}"
-                        Width="{Binding PreviewContainer.ImageFileD.Width}"
                         Height="{Binding PreviewContainer.ImageFileD.Height}"
-                        Source="{Binding PreviewContainer.ImageFileD.FileInfo.FullName}">
+                        Source="{Binding PreviewContainer.ImageFileD.FileInfo.FullName}"
+                        Width="{Binding PreviewContainer.ImageFileD.Width}">
                         <Image.LayoutTransform>
                             <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
                         </Image.LayoutTransform>
@@ -252,9 +252,9 @@
                     <Image
                         Canvas.Left="{Binding PreviewContainer.ActualX}"
                         Canvas.Top="{Binding PreviewContainer.ActualY}"
-                        Width="{Binding PreviewContainer.ImageFileB.Width}"
                         Height="{Binding PreviewContainer.ImageFileB.Height}"
-                        Source="{Binding PreviewContainer.ImageFileB.FileInfo.FullName}">
+                        Source="{Binding PreviewContainer.ImageFileB.FileInfo.FullName}"
+                        Width="{Binding PreviewContainer.ImageFileB.Width}">
                         <Image.LayoutTransform>
                             <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
                         </Image.LayoutTransform>
@@ -263,9 +263,9 @@
                     <Image
                         Canvas.Left="{Binding PreviewContainer.ActualX}"
                         Canvas.Top="{Binding PreviewContainer.ActualY}"
-                        Width="{Binding PreviewContainer.ImageFileC.Width}"
                         Height="{Binding PreviewContainer.ImageFileC.Height}"
-                        Source="{Binding PreviewContainer.ImageFileC.FileInfo.FullName}">
+                        Source="{Binding PreviewContainer.ImageFileC.FileInfo.FullName}"
+                        Width="{Binding PreviewContainer.ImageFileC.Width}">
                         <Image.LayoutTransform>
                             <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
                         </Image.LayoutTransform>
@@ -322,7 +322,7 @@
                     IsSnapToTickEnabled="True"
                     Maximum="5"
                     Minimum="1"
-                    TickFrequency="1"
+                    TickFrequency="0.5"
                     Value="{Binding PreviewContainer.Scale}" />
 
             </DockPanel>
