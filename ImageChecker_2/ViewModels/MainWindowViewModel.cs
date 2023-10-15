@@ -163,6 +163,23 @@ namespace ImageChecker_2.ViewModels
             PreviewContainer.Height = r.Height;
         });
 
+        public DelegateCommand<ImageFile> SelectableImageFilterCommand => new DelegateCommand<ImageFile>((imageFile) =>
+        {
+            if (imageFile == null || !imageFile.IsMatchingNamingRule)
+            {
+                return;
+            }
+
+            if (!imageFile.FileInfo.Name.Contains('A'))
+            {
+                return;
+            }
+
+            ImageContainerB.SelectSameGroupImages(imageFile);
+            ImageContainerC.SelectSameGroupImages(imageFile);
+            ImageContainerD.SelectSameGroupImages(imageFile);
+        });
+
         public void LoadImages(IEnumerable<string> filePaths)
         {
             ImageContainerA = new ImageContainer("A");
