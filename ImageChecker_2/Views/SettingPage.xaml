@@ -42,12 +42,22 @@
             </DockPanel>
         </StackPanel>
 
-        <Button
-            Command="{Binding CloseCommand}"
-            Content="Close"
+        <StackPanel
             Grid.Row="1"
             HorizontalAlignment="Right"
-            Margin="0,5"
-            Width="100" />
+            Orientation="Horizontal">
+
+            <Button
+                Command="{Binding SetDefaultValueCommand}"
+                Content="SetDefaultValue"
+                Margin="20,5"
+                Width="140" />
+
+            <Button
+                Command="{Binding CloseCommand}"
+                Content="Close"
+                Margin="0,5"
+                Width="100" />
+        </StackPanel>
     </Grid>
 </Page>

@@ -2,11 +2,12 @@ using System;
 using System.IO;
 using ImageChecker_2.Models;
 using Prism.Commands;
+using Prism.Mvvm;
 using Prism.Services.Dialogs;
 
 namespace ImageChecker_2.ViewModels
 {
-    public class SettingPageViewModel : IDialogAware
+    public class SettingPageViewModel : BindableBase, IDialogAware
     {
         private readonly string settingFileName = "setting.xml";
         
@@ -19,6 +20,16 @@ namespace ImageChecker_2.ViewModels
         public DelegateCommand CloseCommand => new DelegateCommand(() =>
         {
             RequestClose?.Invoke(new DialogResult());
+        });
+
+        public DelegateCommand SetDefaultValueCommand => new DelegateCommand(() =>
+        {
+            Setting.DrawTagBaseText = "<draw a=\"$a\" b=\"$b\" c=\"$c\" d=\"$d\" />";
+            Setting.ImageTagBaseText = "<image a=\"$a\" b=\"$b\" c=\"$c\" d=\"$d\" scale=\"$s\" x=\"$x\" y=\"$y\" />";
+            Setting.AnimationDrawTagBaseText =
+                "<anime draw a=\"$a\" b=\"$b\" c=\"$c\" d=\"$d\" scale=\"$s\" x=\"$x\" y=\"$y\" />";
+
+            RaisePropertyChanged(nameof(Setting));
         });
         
         public bool CanCloseDialog() => true;
