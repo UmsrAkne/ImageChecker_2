@@ -10,10 +10,10 @@ namespace ImageChecker_2.ViewModels
     public class SettingPageViewModel : BindableBase, IDialogAware
     {
         private readonly string settingFileName = "setting.xml";
-        
+
         public event Action<IDialogResult> RequestClose;
 
-        public string Title => string.Empty;
+        public string Title => "Setting page";
 
         public Setting Setting { get; set; }
         
