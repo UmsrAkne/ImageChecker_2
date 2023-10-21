@@ -192,11 +192,14 @@ namespace ImageChecker_2.Models
                 return;
             }
 
+            var w = ((ImageFileA.Width * Scale) - ScreenWidth) / 2;
+            var h = ((ImageFileA.Height * Scale) - ScreenHeight) / 2;
+
             SlideRange = new Rect(
                 ImageFileA.Width * Scale * -1,
                 ImageFileA.Height * Scale * -1,
-                ImageFileA.Width * 2.0 * Scale, 
-                ImageFileA.Height * 2.0 * Scale);
+                (w + ScreenWidth) * 2,
+                (h + ScreenHeight) * 2);
         }
     }
 }
