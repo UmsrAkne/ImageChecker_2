@@ -33,7 +33,7 @@ namespace ImageChecker_2.Models
 
         public int Width { get => width; set => SetProperty(ref width, value); }
 
-        public int Height { get => height; private set => SetProperty(ref height, value); }
+        public int Height { get => height; set => SetProperty(ref height, value); }
 
         public bool IsMatchingNamingRule { get; private set; }
 
