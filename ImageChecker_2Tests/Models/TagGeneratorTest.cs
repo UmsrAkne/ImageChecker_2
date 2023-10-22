@@ -67,17 +67,17 @@ namespace ImageChecker_2Tests.Models
                 @"<image a=""$a"" $b,$c,$d,$s,$x,$y />",
                 new PreviewContainer() 
                 {
-                    ImageFileA = new ImageFile("aa.png"),
-                    ImageFileB = new ImageFile("bb.png"),
-                    ImageFileC = new ImageFile("cc.png"),
-                    ImageFileD = new ImageFile("dd.png"),
-                    Scale = 1.1,
+                    ImageFileA = new ImageFile("aa.png") { Width = 1280, Height = 720 },
+                    ImageFileB = new ImageFile("bb.png") { Width = 1280, Height = 720 },
+                    ImageFileC = new ImageFile("cc.png") { Width = 1280, Height = 720 },
+                    ImageFileD = new ImageFile("dd.png") { Width = 1280, Height = 720 },
+                    Scale = 1.5,
                     X = 100,
                     Y = 200,
                 }
             );
 
-            Assert.That(tag, Is.EqualTo(@"<image a=""aa"" bb,cc,dd,1.1,100,200 />"));
+            Assert.That(tag, Is.EqualTo(@"<image a=""aa"" bb,cc,dd,1.5,420,380 />"));
         }
     }
 }
