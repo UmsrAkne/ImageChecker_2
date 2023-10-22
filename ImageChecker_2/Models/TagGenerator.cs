@@ -49,8 +49,8 @@ namespace ImageChecker_2.Models
                     previewContainer.ImageFileD,
                 })
                 .Replace("$s", previewContainer.Scale.ToString(CultureInfo.InvariantCulture))
-                .Replace("$x", previewContainer.X.ToString(CultureInfo.CurrentCulture))
-                .Replace("$y", previewContainer.Y.ToString(CultureInfo.CurrentCulture));
+                .Replace("$x", previewContainer.DisplayX.ToString(CultureInfo.CurrentCulture))
+                .Replace("$y", previewContainer.DisplayY.ToString(CultureInfo.CurrentCulture));
         }
     }
 }
