@@ -28,17 +28,26 @@
 
             <DockPanel>
                 <TextBlock Text="Ctrl + i" />
-                <TextBox DockPanel.Dock="Right" Text="{Binding Setting.ImageTagBaseText}" />
+                <TextBox
+                    AcceptsTab="True"
+                    DockPanel.Dock="Right"
+                    Text="{Binding Setting.ImageTagBaseText}" />
             </DockPanel>
 
             <DockPanel>
                 <TextBlock Text="Ctrl + d" />
-                <TextBox DockPanel.Dock="Right" Text="{Binding Setting.DrawTagBaseText}" />
+                <TextBox
+                    AcceptsTab="True"
+                    DockPanel.Dock="Right"
+                    Text="{Binding Setting.DrawTagBaseText}" />
             </DockPanel>
 
             <DockPanel>
                 <TextBlock Text="Ctrl + Shift + d" />
-                <TextBox DockPanel.Dock="Right" Text="{Binding Setting.AnimationDrawTagBaseText}" />
+                <TextBox
+                    AcceptsTab="True"
+                    DockPanel.Dock="Right"
+                    Text="{Binding Setting.AnimationDrawTagBaseText}" />
             </DockPanel>
         </StackPanel>
 
