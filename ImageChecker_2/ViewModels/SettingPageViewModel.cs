@@ -24,10 +24,10 @@ namespace ImageChecker_2.ViewModels
 
         public DelegateCommand SetDefaultValueCommand => new DelegateCommand(() =>
         {
-            Setting.DrawTagBaseText = "<draw a=\"$a\" b=\"$b\" c=\"$c\" d=\"$d\" />";
-            Setting.ImageTagBaseText = "<image a=\"$a\" b=\"$b\" c=\"$c\" d=\"$d\" scale=\"$s\" x=\"$x\" y=\"$y\" />";
+            Setting.DrawTagBaseText = "\t<draw a=\"$a\" b=\"$b\" c=\"$c\" d=\"$d\" />";
+            Setting.ImageTagBaseText = "\t<image a=\"$a\" b=\"$b\" c=\"$c\" d=\"$d\" scale=\"$s\" x=\"$x\" y=\"$y\" />";
             Setting.AnimationDrawTagBaseText =
-                "<anime draw a=\"$a\" b=\"$b\" c=\"$c\" d=\"$d\" scale=\"$s\" x=\"$x\" y=\"$y\" />";
+                "\t<anime draw a=\"$a\" b=\"$b\" c=\"$c\" d=\"$d\" scale=\"$s\" x=\"$x\" y=\"$y\" />";
 
             RaisePropertyChanged(nameof(Setting));
         });
