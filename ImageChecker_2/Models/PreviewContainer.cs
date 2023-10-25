@@ -50,7 +50,7 @@ namespace ImageChecker_2.Models
 
         public double ActualY => Y * PreviewScreenScale;
         
-        public double DisplayY => (ImageHeight * Scale / 2) + Y - (Height / PreviewScreenScale / 2);
+        public double DisplayY => ((ImageHeight * Scale / 2) + Y - (Height / PreviewScreenScale / 2)) * -1;
 
         public double Scale
         {

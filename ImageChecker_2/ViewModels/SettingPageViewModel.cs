@@ -24,7 +24,7 @@ namespace ImageChecker_2.ViewModels
 
         public DelegateCommand SetDefaultValueCommand => new DelegateCommand(() =>
         {
-            Setting.DrawTagBaseText = "\t<draw a=\"$a\" b=\"$b\" c=\"$c\" d=\"$d\" />";
+            Setting.DrawTagBaseText = "\t<draw a=\"\" b=\"$b\" c=\"$c\" d=\"$d\" />";
             Setting.ImageTagBaseText = "\t<image a=\"$a\" b=\"$b\" c=\"$c\" d=\"$d\" scale=\"$s\" x=\"$x\" y=\"$y\" />";
             Setting.AnimationDrawTagBaseText =
                 "\t<anime draw a=\"$a\" b=\"$b\" c=\"$c\" d=\"$d\" scale=\"$s\" x=\"$x\" y=\"$y\" />";
