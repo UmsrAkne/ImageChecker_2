@@ -77,7 +77,7 @@ namespace ImageChecker_2Tests.Models
                 }
             );
 
-            Assert.That(tag, Is.EqualTo(@"<image a=""aa"" bb,cc,dd,1.5,420,380 />"));
+            Assert.That(tag, Is.EqualTo(@"<image a=""aa"" bb,cc,dd,1.5,420,-380 />"));
         }
     }
 }
