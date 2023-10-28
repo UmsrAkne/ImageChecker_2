@@ -141,7 +141,7 @@
 
                 <Button
                     Command="{Binding PreviewContainer.SetPositionCommand}"
-                    Content="225"
+                    Content="315"
                     Grid.Column="0"
                     Grid.Row="0">
                     <Button.CommandParameter>
@@ -161,7 +161,7 @@
 
                 <Button
                     Command="{Binding PreviewContainer.SetPositionCommand}"
-                    Content="315"
+                    Content="225"
                     Grid.Column="2"
                     Grid.Row="0">
                     <Button.CommandParameter>
@@ -171,7 +171,7 @@
 
                 <Button
                     Command="{Binding PreviewContainer.SetPositionCommand}"
-                    Content="180"
+                    Content="0"
                     Grid.Column="0"
                     Grid.Row="1">
                     <Button.CommandParameter>
@@ -181,7 +181,7 @@
 
                 <Button
                     Command="{Binding PreviewContainer.SetPositionCommand}"
-                    Content="0"
+                    Content="180"
                     Grid.Column="2"
                     Grid.Row="1">
                     <Button.CommandParameter>
@@ -191,7 +191,7 @@
 
                 <Button
                     Command="{Binding PreviewContainer.SetPositionCommand}"
-                    Content="135"
+                    Content="45"
                     Grid.Column="0"
                     Grid.Row="2">
                     <Button.CommandParameter>
@@ -211,7 +211,7 @@
 
                 <Button
                     Command="{Binding PreviewContainer.SetPositionCommand}"
-                    Content="45"
+                    Content="135"
                     Grid.Column="2"
                     Grid.Row="2">
                     <Button.CommandParameter>
