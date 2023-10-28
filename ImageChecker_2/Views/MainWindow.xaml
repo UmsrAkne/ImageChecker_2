@@ -48,6 +48,37 @@
             Key="D"
             Modifiers="Control + Shift" />
 
+        <KeyBinding Command="{Binding MoveImageCommand}" Key="X">
+            <KeyBinding.CommandParameter>
+                <Point X="1" Y="0" />
+            </KeyBinding.CommandParameter>
+        </KeyBinding>
+
+        <KeyBinding
+            Command="{Binding MoveImageCommand}"
+            Key="X"
+            Modifiers="Shift">
+            <KeyBinding.CommandParameter>
+                <Point X="-1" Y="0" />
+            </KeyBinding.CommandParameter>
+        </KeyBinding>
+
+        <KeyBinding Command="{Binding MoveImageCommand}" Key="Y">
+            <KeyBinding.CommandParameter>
+                <Point X="0" Y="1" />
+            </KeyBinding.CommandParameter>
+        </KeyBinding>
+
+        <KeyBinding
+            Command="{Binding MoveImageCommand}"
+            Key="Y"
+            Modifiers="Shift">
+            <KeyBinding.CommandParameter>
+                <Point X="0" Y="-1" />
+            </KeyBinding.CommandParameter>
+        </KeyBinding>
+
+
         <KeyBinding
             Command="{Binding PreviewContainer.SetPositionCommand}"
             Key="D0"

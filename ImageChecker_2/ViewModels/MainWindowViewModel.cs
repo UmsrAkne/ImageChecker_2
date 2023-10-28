@@ -180,6 +180,21 @@ namespace ImageChecker_2.ViewModels
             ImageContainerD.SelectSameGroupImages(imageFile);
         });
 
+        public DelegateCommand<object> MoveImageCommand => new DelegateCommand<object>((pt) =>
+        {
+            var p = new Point((int)((System.Windows.Point)pt).X, (int)((System.Windows.Point)pt).Y);
+            if (p.X != 0)
+            {
+                PreviewContainer.X += 20 * p.X;
+                return;
+            }
+
+            if (p.Y != 0)
+            {
+                PreviewContainer.Y += 20 * p.Y;
+            }
+        });
+
         public void LoadImages(IEnumerable<string> filePaths)
         {
             ImageContainerA = new ImageContainer("A");
