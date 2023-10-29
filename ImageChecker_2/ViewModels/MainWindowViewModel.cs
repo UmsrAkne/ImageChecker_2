@@ -191,7 +191,7 @@ namespace ImageChecker_2.ViewModels
 
             if (p.Y != 0)
             {
-                PreviewContainer.Y += 20 * p.Y;
+                PreviewContainer.Y -= 20 * p.Y;
             }
         });
 
