@@ -9,6 +9,7 @@ namespace ImageChecker_2.Models
     {
         private int width;
         private int height;
+        private bool isSelected;
 
         public ImageFile(string filePath)
         {
@@ -42,6 +43,8 @@ namespace ImageChecker_2.Models
         public FileInfo FileInfo { get; }
 
         public int SubIndex { get; set; }
+
+        public bool IsSelected { get => isSelected; set => SetProperty(ref isSelected, value); }
 
         public override string ToString()
         {

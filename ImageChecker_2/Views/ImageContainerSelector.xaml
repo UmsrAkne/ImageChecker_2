@@ -43,7 +43,6 @@
             VirtualizingPanel.ScrollUnit="Pixel"
             x:Name="ListBox">
             <ListBox.ItemTemplate>
-
                 <DataTemplate DataType="{x:Type models:ImageFile}">
                     <Border>
                         <Border.Style>
@@ -56,20 +55,34 @@
                             </Style>
                         </Border.Style>
 
-                        <StackPanel>
-                            <Image Source="{Binding FileInfo.FullName}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=ActualWidth, Converter={StaticResource SizeFixConverter}}" />
-                            <TextBlock Text="{Binding FileInfo.Name}" />
+                        <Border BorderThickness="4,0,0,0" Margin="0,5">
 
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Width}" />
-                                <TextBlock Text=" x " />
-                                <TextBlock Text="{Binding Height}" />
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                                            <Setter Property="BorderBrush" Value="Tomato" />
+                                        </DataTrigger>
+
+                                        <DataTrigger Binding="{Binding IsSelected}" Value="False">
+                                            <Setter Property="BorderBrush" Value="Transparent" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+
+                            <StackPanel Margin="2,0">
+                                <Image Source="{Binding FileInfo.FullName}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=ActualWidth, Converter={StaticResource SizeFixConverter}}" />
+                                <TextBlock Text="{Binding FileInfo.Name}" />
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Width}" />
+                                    <TextBlock Text=" x " />
+                                    <TextBlock Text="{Binding Height}" />
+                                </StackPanel>
+                                <Border Background="Black" Height="2" />
                             </StackPanel>
-                            <Border
-                                Background="Black"
-                                Height="2"
-                                Margin="0,5" />
-                        </StackPanel>
+                        </Border>
                     </Border>
                 </DataTemplate>
 

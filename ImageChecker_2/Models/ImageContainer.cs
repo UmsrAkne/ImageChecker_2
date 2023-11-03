@@ -33,6 +33,16 @@ namespace ImageChecker_2.Models
             get => IsEnabled ? currentFile : null;
             set
             {
+                if (currentFile != null)
+                {
+                    currentFile.IsSelected = false;
+                }
+
+                if (value != null)
+                {
+                    value.IsSelected = true;
+                }
+
                 if (SetProperty(ref currentFile, value))
                 {
                     CurrentFileChanged?.Invoke(this, EventArgs.Empty);
