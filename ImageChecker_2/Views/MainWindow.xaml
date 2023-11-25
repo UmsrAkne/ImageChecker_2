@@ -93,6 +93,10 @@
             Key="D1"
             Modifiers="Control" />
 
+        <KeyBinding
+            Command="{Binding ChangePreviewAreaVisibilityCommand}"
+            Key="V"
+            Modifiers="Control" />
 
     </Window.InputBindings>
 
@@ -145,6 +149,7 @@
             Grid.Column="0"
             Grid.Row="1"
             Margin="3"
+            Visibility="{Binding PreviewAreaVisibility}"
             x:Name="CanvasStackPanel">
 
             <StackPanel.Resources>

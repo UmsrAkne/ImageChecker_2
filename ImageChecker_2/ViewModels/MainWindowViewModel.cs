@@ -57,6 +57,8 @@ namespace ImageChecker_2.ViewModels
 
         public ObservableCollection<History> Histories { get; private set; } = new ObservableCollection<History>();
 
+        public Visibility PreviewAreaVisibility { get; private set; } = Visibility.Visible;
+
         public DelegateCommand ShowSettingPageCommand => new DelegateCommand(() =>
         {
             dialogService.ShowDialog(nameof(SettingPage), new DialogParameters(), _ =>
@@ -154,6 +156,15 @@ namespace ImageChecker_2.ViewModels
                 case ZoomScale.High:
                     break;
             }
+        });
+
+        public DelegateCommand ChangePreviewAreaVisibilityCommand => new DelegateCommand(() =>
+        {
+            PreviewAreaVisibility = PreviewAreaVisibility == Visibility.Visible 
+                ? Visibility.Collapsed 
+                : Visibility.Visible;
+            
+            RaisePropertyChanged(nameof(PreviewAreaVisibility));
         });
 
         public DelegateCommand<object> ChangeScreenSizeCommand => new DelegateCommand<object>((rect) =>
