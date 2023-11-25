@@ -41,6 +41,9 @@ namespace ImageChecker_2.Models
 
         public static string GetTag(string baseText, PreviewContainer previewContainer)
         {
+            var x = Convert.ToInt32(previewContainer.DisplayX);
+            var y = Convert.ToInt32(previewContainer.DisplayY);
+            
             return GetTag(baseText, new List<ImageFile>
                 {
                     previewContainer.ImageFileA,
@@ -49,8 +52,8 @@ namespace ImageChecker_2.Models
                     previewContainer.ImageFileD,
                 })
                 .Replace("$s", previewContainer.Scale.ToString(CultureInfo.InvariantCulture))
-                .Replace("$x", previewContainer.DisplayX.ToString(CultureInfo.CurrentCulture))
-                .Replace("$y", previewContainer.DisplayY.ToString(CultureInfo.CurrentCulture));
+                .Replace("$x", x.ToString(CultureInfo.CurrentCulture))
+                .Replace("$y", y.ToString(CultureInfo.CurrentCulture));
         }
     }
 }
