@@ -9,7 +9,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:ImageChecker_2.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Grid Margin="5">
+
+    <Page.InputBindings>
+        <KeyBinding Command="{Binding CloseCommand}" Key="Escape" />
+    </Page.InputBindings>
+
+    <Grid FocusManager.FocusedElement="{Binding ElementName=ImageTagTextBox}" Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="Auto" />
@@ -31,7 +36,8 @@
                 <TextBox
                     AcceptsTab="True"
                     DockPanel.Dock="Right"
-                    Text="{Binding Setting.ImageTagBaseText}" />
+                    Text="{Binding Setting.ImageTagBaseText}"
+                    x:Name="ImageTagTextBox" />
             </DockPanel>
 
             <DockPanel>
@@ -60,13 +66,13 @@
                 Command="{Binding SetDefaultValueCommand}"
                 Content="Set default value"
                 Margin="20,5"
-                Width="140" />
+                Width="160" />
 
             <Button
                 Command="{Binding CloseCommand}"
-                Content="Close"
+                Content="Close (Escape)"
                 Margin="0,5"
-                Width="100" />
+                Width="120" />
         </StackPanel>
     </Grid>
 </Page>
