@@ -141,6 +141,11 @@
                     </MenuItem.CommandParameter>
                 </MenuItem>
 
+                <MenuItem
+                    Command="{Binding ChangePreviewAreaVisibilityCommand}"
+                    Header="プレビューエリアを表示 / 非表示"
+                    InputGestureText="Ctrl + V" />
+
             </MenuItem>
             <MenuItem Command="{Binding ShowSettingPageCommand}" Header="Setting" />
         </Menu>
