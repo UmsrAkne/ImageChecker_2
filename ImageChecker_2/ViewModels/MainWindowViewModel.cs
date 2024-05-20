@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
@@ -16,7 +17,6 @@ namespace ImageChecker_2.ViewModels
     public class MainWindowViewModel : BindableBase
     {
         private readonly IDialogService dialogService;
-        private string title = "Image checker ver 2";
         private ImageContainer imageContainerA;
         private ImageContainer imageContainerB;
         private ImageContainer imageContainerC;
@@ -25,9 +25,10 @@ namespace ImageChecker_2.ViewModels
         public MainWindowViewModel(IDialogService dialogService)
         {
             this.dialogService = dialogService;
+            SetVersionNumber();
         }
 
-        public string Title { get => title; set => SetProperty(ref title, value); }
+        public TitleBarText TitleBarText { get; set; } = new TitleBarText();
 
         public PreviewContainer PreviewContainer { get; } = new PreviewContainer();
 
@@ -228,6 +229,12 @@ namespace ImageChecker_2.ViewModels
             var fs = filePaths.ToList();
             new List<ImageContainer> { ImageContainerA, ImageContainerB, ImageContainerC, ImageContainerD, }
                 .ForEach(c => c.Load(fs));
+        }
+
+        [Conditional("RELEASE")]
+        private void SetVersionNumber()
+        {
+            TitleBarText.Version = "20240520" + "a";
         }
     }
 }

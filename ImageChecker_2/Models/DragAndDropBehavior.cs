@@ -41,7 +41,7 @@ namespace ImageChecker_2.Models
                 // files の要素数が 1 でドロップアイテムがディレクトリならば、画像用ディレクトリがドロップされたということなので
                 // ディレクトリの内容をロードして渡す。
                 vm.LoadImages(Directory.GetFiles(files.First()));
-                vm.Title = files.First();
+                vm.TitleBarText.Title = files.First();
 
                 return;
             }

@@ -1,13 +1,7 @@
 ﻿<Window
-    AllowDrop="True"
-    Height="700"
-    Title="{Binding Title}"
-    Width="1024"
-    d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
-    mc:Ignorable="d"
-    prism:ViewModelLocator.AutoWireViewModel="True"
     x:Class="ImageChecker_2.Views.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -15,7 +9,13 @@
     xmlns:prism="http://prismlibrary.com/"
     xmlns:viewModels="clr-namespace:ImageChecker_2.ViewModels"
     xmlns:views="clr-namespace:ImageChecker_2.Views"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    Title="{Binding TitleBarText.Title}"
+    Width="1024"
+    Height="700"
+    d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    AllowDrop="True"
+    mc:Ignorable="d">
 
     <i:Interaction.Behaviors>
         <models:DragAndDropBehavior />
@@ -31,47 +31,47 @@
 
     <Window.InputBindings>
         <KeyBinding
-            Command="{Binding GenerateTagCommand}"
-            CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
             Key="I"
+            Command="{Binding GenerateTagCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
             Modifiers="Control" />
 
         <KeyBinding
+            Key="D"
             Command="{Binding GenerateTagCommand}"
             CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
-            Key="D"
             Modifiers="Control" />
 
         <KeyBinding
+            Key="D"
             Command="{Binding GenerateTagCommand}"
             CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
-            Key="D"
             Modifiers="Control + Shift" />
 
-        <KeyBinding Command="{Binding MoveImageCommand}" Key="X">
+        <KeyBinding Key="X" Command="{Binding MoveImageCommand}">
             <KeyBinding.CommandParameter>
                 <Point X="1" Y="0" />
             </KeyBinding.CommandParameter>
         </KeyBinding>
 
         <KeyBinding
-            Command="{Binding MoveImageCommand}"
             Key="X"
+            Command="{Binding MoveImageCommand}"
             Modifiers="Shift">
             <KeyBinding.CommandParameter>
                 <Point X="-1" Y="0" />
             </KeyBinding.CommandParameter>
         </KeyBinding>
 
-        <KeyBinding Command="{Binding MoveImageCommand}" Key="Y">
+        <KeyBinding Key="Y" Command="{Binding MoveImageCommand}">
             <KeyBinding.CommandParameter>
                 <Point X="0" Y="1" />
             </KeyBinding.CommandParameter>
         </KeyBinding>
 
         <KeyBinding
-            Command="{Binding MoveImageCommand}"
             Key="Y"
+            Command="{Binding MoveImageCommand}"
             Modifiers="Shift">
             <KeyBinding.CommandParameter>
                 <Point X="0" Y="-1" />
@@ -80,8 +80,8 @@
 
 
         <KeyBinding
-            Command="{Binding PreviewContainer.SetPositionCommand}"
             Key="D0"
+            Command="{Binding PreviewContainer.SetPositionCommand}"
             Modifiers="Control">
             <KeyBinding.CommandParameter>
                 <Point X="-0" Y="0" />
@@ -89,13 +89,13 @@
         </KeyBinding>
 
         <KeyBinding
-            Command="{Binding PreviewContainer.ResetPostAndScaleCommand}"
             Key="D1"
+            Command="{Binding PreviewContainer.ResetPostAndScaleCommand}"
             Modifiers="Control" />
 
         <KeyBinding
-            Command="{Binding ChangePreviewAreaVisibilityCommand}"
             Key="V"
+            Command="{Binding ChangePreviewAreaVisibilityCommand}"
             Modifiers="Control" />
 
     </Window.InputBindings>
@@ -113,9 +113,9 @@
         </Grid.ColumnDefinitions>
 
         <Menu
+            Grid.Row="0"
             Grid.Column="0"
-            Grid.ColumnSpan="2"
-            Grid.Row="0">
+            Grid.ColumnSpan="2">
             <MenuItem Header="View">
                 <MenuItem Command="{Binding ChangePreviewScaleCommand}" Header="プレビューサイズ 25%">
                     <MenuItem.CommandParameter>
@@ -131,13 +131,13 @@
 
                 <MenuItem Command="{Binding ChangeScreenSizeCommand}" Header="スクリーンサイズ　1280 x 720">
                     <MenuItem.CommandParameter>
-                        <Rect Height="180" Width="320" />
+                        <Rect Width="320" Height="180" />
                     </MenuItem.CommandParameter>
                 </MenuItem>
 
                 <MenuItem Command="{Binding ChangeScreenSizeCommand}" Header="スクリーンサイズ　1680 x 720">
                     <MenuItem.CommandParameter>
-                        <Rect Height="180" Width="420" />
+                        <Rect Width="420" Height="180" />
                     </MenuItem.CommandParameter>
                 </MenuItem>
 
@@ -151,11 +151,11 @@
         </Menu>
 
         <StackPanel
-            Grid.Column="0"
+            x:Name="CanvasStackPanel"
             Grid.Row="1"
+            Grid.Column="0"
             Margin="3"
-            Visibility="{Binding PreviewAreaVisibility}"
-            x:Name="CanvasStackPanel">
+            Visibility="{Binding PreviewAreaVisibility}">
 
             <StackPanel.Resources>
                 <Style TargetType="Border">
@@ -181,99 +181,99 @@
                 </Grid.RowDefinitions>
 
                 <Button
-                    Command="{Binding PreviewContainer.SetPositionCommand}"
-                    Content="315"
+                    Grid.Row="0"
                     Grid.Column="0"
-                    Grid.Row="0">
+                    Command="{Binding PreviewContainer.SetPositionCommand}"
+                    Content="315">
                     <Button.CommandParameter>
                         <Point X="-1" Y="-1" />
                     </Button.CommandParameter>
                 </Button>
 
                 <Button
-                    Command="{Binding PreviewContainer.SetPositionCommand}"
-                    Content="270"
+                    Grid.Row="0"
                     Grid.Column="1"
-                    Grid.Row="0">
+                    Command="{Binding PreviewContainer.SetPositionCommand}"
+                    Content="270">
                     <Button.CommandParameter>
                         <Point X="0" Y="-1" />
                     </Button.CommandParameter>
                 </Button>
 
                 <Button
-                    Command="{Binding PreviewContainer.SetPositionCommand}"
-                    Content="225"
+                    Grid.Row="0"
                     Grid.Column="2"
-                    Grid.Row="0">
+                    Command="{Binding PreviewContainer.SetPositionCommand}"
+                    Content="225">
                     <Button.CommandParameter>
                         <Point X="1" Y="-1" />
                     </Button.CommandParameter>
                 </Button>
 
                 <Button
-                    Command="{Binding PreviewContainer.SetPositionCommand}"
-                    Content="0"
+                    Grid.Row="1"
                     Grid.Column="0"
-                    Grid.Row="1">
+                    Command="{Binding PreviewContainer.SetPositionCommand}"
+                    Content="0">
                     <Button.CommandParameter>
                         <Point X="-1" Y="0" />
                     </Button.CommandParameter>
                 </Button>
 
                 <Button
-                    Command="{Binding PreviewContainer.SetPositionCommand}"
-                    Content="180"
+                    Grid.Row="1"
                     Grid.Column="2"
-                    Grid.Row="1">
+                    Command="{Binding PreviewContainer.SetPositionCommand}"
+                    Content="180">
                     <Button.CommandParameter>
                         <Point X="1" Y="0" />
                     </Button.CommandParameter>
                 </Button>
 
                 <Button
-                    Command="{Binding PreviewContainer.SetPositionCommand}"
-                    Content="45"
+                    Grid.Row="2"
                     Grid.Column="0"
-                    Grid.Row="2">
+                    Command="{Binding PreviewContainer.SetPositionCommand}"
+                    Content="45">
                     <Button.CommandParameter>
                         <Point X="-1" Y="1" />
                     </Button.CommandParameter>
                 </Button>
 
                 <Button
-                    Command="{Binding PreviewContainer.SetPositionCommand}"
-                    Content="90"
+                    Grid.Row="2"
                     Grid.Column="1"
-                    Grid.Row="2">
+                    Command="{Binding PreviewContainer.SetPositionCommand}"
+                    Content="90">
                     <Button.CommandParameter>
                         <Point X="0" Y="1" />
                     </Button.CommandParameter>
                 </Button>
 
                 <Button
-                    Command="{Binding PreviewContainer.SetPositionCommand}"
-                    Content="135"
+                    Grid.Row="2"
                     Grid.Column="2"
-                    Grid.Row="2">
+                    Command="{Binding PreviewContainer.SetPositionCommand}"
+                    Content="135">
                     <Button.CommandParameter>
                         <Point X="1" Y="1" />
                     </Button.CommandParameter>
                 </Button>
 
                 <Canvas
-                    ClipToBounds="True"
-                    Grid.Column="1"
                     Grid.Row="1"
+                    Grid.Column="1"
+                    Width="{Binding PreviewContainer.Width}"
                     Height="{Binding PreviewContainer.Height}"
                     Margin="3"
-                    Width="{Binding PreviewContainer.Width}">
+                    ClipToBounds="True">
 
                     <Image
                         Canvas.Left="{Binding PreviewContainer.ActualX}"
                         Canvas.Top="{Binding PreviewContainer.ActualY}"
+                        Width="{Binding PreviewContainer.ImageFileA.Width}"
                         Height="{Binding PreviewContainer.ImageFileA.Height}"
-                        Source="{Binding PreviewContainer.ImageFileA.FileInfo.FullName}"
-                        Width="{Binding PreviewContainer.ImageFileA.Width}">
+                        Source="{Binding PreviewContainer.ImageFileA.FileInfo.FullName}">
                         <Image.LayoutTransform>
                             <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
                         </Image.LayoutTransform>
@@ -282,9 +282,9 @@
                     <Image
                         Canvas.Left="{Binding PreviewContainer.ActualX}"
                         Canvas.Top="{Binding PreviewContainer.ActualY}"
+                        Width="{Binding PreviewContainer.ImageFileD.Width}"
                         Height="{Binding PreviewContainer.ImageFileD.Height}"
-                        Source="{Binding PreviewContainer.ImageFileD.FileInfo.FullName}"
-                        Width="{Binding PreviewContainer.ImageFileD.Width}">
+                        Source="{Binding PreviewContainer.ImageFileD.FileInfo.FullName}">
                         <Image.LayoutTransform>
                             <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
                         </Image.LayoutTransform>
@@ -293,9 +293,9 @@
                     <Image
                         Canvas.Left="{Binding PreviewContainer.ActualX}"
                         Canvas.Top="{Binding PreviewContainer.ActualY}"
+                        Width="{Binding PreviewContainer.ImageFileB.Width}"
                         Height="{Binding PreviewContainer.ImageFileB.Height}"
-                        Source="{Binding PreviewContainer.ImageFileB.FileInfo.FullName}"
-                        Width="{Binding PreviewContainer.ImageFileB.Width}">
+                        Source="{Binding PreviewContainer.ImageFileB.FileInfo.FullName}">
                         <Image.LayoutTransform>
                             <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
                         </Image.LayoutTransform>
@@ -304,9 +304,9 @@
                     <Image
                         Canvas.Left="{Binding PreviewContainer.ActualX}"
                         Canvas.Top="{Binding PreviewContainer.ActualY}"
+                        Width="{Binding PreviewContainer.ImageFileC.Width}"
                         Height="{Binding PreviewContainer.ImageFileC.Height}"
-                        Source="{Binding PreviewContainer.ImageFileC.FileInfo.FullName}"
-                        Width="{Binding PreviewContainer.ImageFileC.Width}">
+                        Source="{Binding PreviewContainer.ImageFileC.FileInfo.FullName}">
                         <Image.LayoutTransform>
                             <ScaleTransform ScaleX="{Binding PreviewContainer.ActualScale}" ScaleY="{Binding PreviewContainer.ActualScale}" />
                         </Image.LayoutTransform>
@@ -318,14 +318,14 @@
                 </Canvas>
 
                 <DockPanel
-                    Grid.Column="3"
                     Grid.Row="0"
                     Grid.RowSpan="3"
+                    Grid.Column="3"
                     Margin="4,0">
 
                     <TextBlock
-                        DockPanel.Dock="Top"
                         HorizontalAlignment="Center"
+                        DockPanel.Dock="Top"
                         Text="Y" />
 
                     <Slider
@@ -391,20 +391,20 @@
         </StackPanel>
 
         <ListBox
-            Grid.Column="0"
             Grid.Row="2"
+            Grid.Column="0"
+            MaxWidth="{Binding ActualWidth, ElementName=CanvasStackPanel}"
             HorizontalContentAlignment="Stretch"
             ItemTemplate="{StaticResource HistoryListBoxDataTemplate}"
             ItemsSource="{Binding Histories}"
-            MaxWidth="{Binding ActualWidth, ElementName=CanvasStackPanel}"
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             ScrollViewer.VerticalScrollBarVisibility="Visible"
             VirtualizingPanel.ScrollUnit="Pixel" />
 
         <Grid
-            Grid.Column="1"
             Grid.Row="1"
-            Grid.RowSpan="2">
+            Grid.RowSpan="2"
+            Grid.Column="1">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
